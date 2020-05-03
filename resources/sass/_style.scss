@@ -1,0 +1,63 @@
+body {
+    width: calc(100vw + 300px);
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    transition: all 300ms linear;
+    overflow-x: hidden;
+    background: #383838;
+    &.menu-hidden {
+        left: -300px;
+    }
+    .material-design-icon {
+        transition: all 100ms linear;
+    }
+    .btn:focus {
+        box-shadow: none;
+    }
+    .main-sidebar {
+        width: 300px;
+        position: absolute;
+        height: 100vh;
+        background: #383838;
+        a, a:hover, a:visited, a:active, a:focus {
+            color: #e3e3e3;
+        }
+        li {
+            padding: .8em 1em;
+            line-height: 100%;
+            font-size: 1.2em;
+        }
+    }
+    .content-wrapper {
+        background: #383838;
+        position: absolute;
+        height: 100%;
+        left: 300px;
+        right: 0;
+        .view-button {
+            position: absolute;
+            left: .5em;
+            width: 50px;
+            height: 40px;
+            padding: 5px;
+            color: #e3e3e3;
+        }
+        #menu_toggle {
+            top: 1em;
+            right: 0;
+        }
+        #dashboard_morning_button {
+            top: calc(2em + 40px)
+        }
+        #dashboard_day_button {
+            top: calc(3em + 80px)
+        }
+        #dashboard_night_button {
+            top: calc(4em + 120px)
+        }
+        #dashboard_general_button {
+            top: calc(5em + 160px)
+        }
+    }
+}
