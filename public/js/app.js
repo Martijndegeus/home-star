@@ -41095,7 +41095,14 @@ var render = function() {
                     staticClass: "cube__face cube__face--front pt-2",
                     attrs: { id: "general" }
                   },
-                  [_vm._v("General Dashboard")]
+                  [
+                    _vm._v(
+                      "H:" +
+                        _vm._s(_vm.window.innerHeight) +
+                        " x W:" +
+                        _vm._s(_vm.window.innerWidth)
+                    )
+                  ]
                 ),
                 _vm._v(" "),
                 _c(
