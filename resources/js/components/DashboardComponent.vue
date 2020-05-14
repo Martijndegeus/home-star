@@ -21,7 +21,7 @@
                     <div class="dashboard">
                         <div class="scene">
                             <div class="cube">
-                                <div id="general" class="cube__face cube__face--front pt-2">H:{{ document.documentElement.clientHeight || 0 }} x W:{{ document.documentElement.clientWidth || 0 }}</div>
+                                <div id="general" class="cube__face cube__face--front pt-2">General Dashboard</div>
                                 <div id="morning" class="cube__face cube__face--back pt-2">
                                     <div class="container">
                                         <div class="row align-items-start">
