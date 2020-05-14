@@ -41098,9 +41098,9 @@ var render = function() {
                   [
                     _vm._v(
                       "H:" +
-                        _vm._s(_vm.window.innerHeight) +
+                        _vm._s(_vm.document.documentElement.clientHeight || 0) +
                         " x W:" +
-                        _vm._s(_vm.window.innerWidth)
+                        _vm._s(_vm.document.documentElement.clientWidth || 0)
                     )
                   ]
                 ),
