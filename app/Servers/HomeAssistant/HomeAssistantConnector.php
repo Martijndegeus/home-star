@@ -2,9 +2,10 @@
 
 namespace App\Servers\HomeAssistant;
 
+use App\Servers\Connector;
 use Illuminate\Support\Facades\Http;
 
-class Connector
+class HomeAssistantConnector implements Connector
 {
     public static function get(string $endpoint)
     {
@@ -13,8 +14,6 @@ class Connector
 
     public static function post(string $endpoint, array $body)
     {
-//        return $body;
-
         return Http::withToken(env('HOME_ASSISTANT_TOKEN'))->post(env('HOME_ASSISTANT_API_URL') . $endpoint, $body);
     }
 }

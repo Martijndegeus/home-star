@@ -10,13 +10,13 @@ class Entity
     {
         $state = 'turn_off';
 
-        if($switchOn) {
+        if ($switchOn) {
             $state = 'turn_on';
         }
 
         $endpoint = 'services/switch/' . $state;
 
-        $response = Connector::post($endpoint, [
+        $response = HomeAssistantConnector::post($endpoint, [
             'entity_id' => $entityId,
         ]);
 
@@ -25,26 +25,25 @@ class Entity
         return $response;
     }
 
-    public static function entities()
+    public static function all()
     {
         $endpoint = 'states';
 
-        $entities = json_decode(Connector::get($endpoint));
+        $entities = json_decode(HomeAssistantConnector::get($endpoint));
 
         $numberOfEntities = sizeof($entities);
 
         $response = [];
 
         for ($i = 0; $i < $numberOfEntities; $i++) {
-            if(strpos($entities[$i]->entity_id, 'switch') !== false) {
+            if (strpos($entities[$i]->entity_id, 'switch') !== false) {
                 $response['switch'][] = $entities[$i];
-//                $entities[$i]->type = 'switch';
-            } else if(strpos($entities[$i]->entity_id, 'sensor') !== false) {
+            } else if (strpos($entities[$i]->entity_id, 'sensor') !== false) {
                 $response['sensor'][] = $entities[$i];
-//                $entities[$i]->type = 'sensor';
-            } else if(strpos($entities[$i]->entity_id, 'person') !== false) {
+            } else if (strpos($entities[$i]->entity_id, 'person') !== false) {
                 $response['person'][] = $entities[$i];
-//                $entities[$i]->type = 'person';
+            } else if (strpos($entities[$i]->entity_id, 'script') !== false) {
+                $response['script'][] = $entities[$i];
             } else {
                 $response['other'][] = $entities[$i];
             }
