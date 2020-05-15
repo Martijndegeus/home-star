@@ -6910,7 +6910,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n#dashboards[data-v-01ab55f4] {\n    margin: 0 auto;\n}\n.scene[data-v-01ab55f4] {\n    width: 600px;\n    height: 350px;\n    margin: 50px 80px auto 100px;\n    perspective: 300px;\n    float: left;\n}\n.cube[data-v-01ab55f4] {\n    width: 600px;\n    height: 300px;\n    position: relative;\n    transform-style: preserve-3d;\n    transform: translateZ(-110px);\n    transition: transform 1s;\n}\n.cube.show-front[data-v-01ab55f4] {\n    transform: translateZ(-110px) rotateY(0deg);\n}\n.cube.show-right[data-v-01ab55f4] {\n    transform: translateZ(-110px) rotateY(-90deg);\n}\n.cube.show-back[data-v-01ab55f4] {\n    transform: translateZ(-110px) rotateX(-180deg);\n}\n.cube.show-left[data-v-01ab55f4] {\n    transform: translateZ(-110px) rotateY(90deg);\n}\n.cube.show-top[data-v-01ab55f4] {\n    transform: translateZ(-110px) rotateX(-90deg);\n}\n.cube.show-bottom[data-v-01ab55f4] {\n    transform: translateZ(-110px) rotateX(90deg);\n}\n.cube__face[data-v-01ab55f4] {\n    position: absolute;\n}\n.button[data-v-01ab55f4] {\n    margin-bottom: 1em;\n    height: 20vh;\n    border: 1px solid rgba(255, 255, 255, 0.15);\n    color: rgba(255, 255, 255, 0.75);\n}\n.clock[data-v-01ab55f4] {\n    height: 20vh;\n    font-size: 40px;\n    font-weight: bold;\n    color: white;\n    text-align: center;\n    color: rgba(255, 255, 255, 0.75);\n}\n.weather-view[data-v-01ab55f4] {\n    line-height: 1;\n    font-size: 1.2em;\n    border: none;\n}\n.cube__face--front[data-v-01ab55f4] {\n    background: hsla(0, 12%, 51%, 0.95);\n    width: 600px;\n    height: 300px;\n}\n.cube__face--right[data-v-01ab55f4] {\n    background: hsla(60, 8%, 20%, 0.7);\n    width: 300px;\n    height: 300px;\n}\n.cube__face--back[data-v-01ab55f4] {\n    background: hsla(40, 53%, 36%, 0.95);\n    width: 600px;\n    height: 300px;\n}\n.cube__face--left[data-v-01ab55f4] {\n    background: hsla(60, 8%, 20%, 0.7);\n    width: 300px;\n    height: 300px;\n}\n.cube__face--top[data-v-01ab55f4] {\n    background: hsla(242, 17%, 73%, 0.95);\n    width: 600px;\n    height: 300px;\n}\n.cube__face--bottom[data-v-01ab55f4] {\n    background: hsla(300, 10%, 25%, 0.95);\n    width: 600px;\n    height: 300px;\n}\n.cube__face--front[data-v-01ab55f4] {\n    transform: rotateY(0deg) translateZ(150px);\n}\n.cube__face--right[data-v-01ab55f4] {\n    transform: rotateY(90deg) translateZ(450px);\n}\n.cube__face--back[data-v-01ab55f4] {\n    transform: rotateY(180deg) translateZ(150px) rotate(180deg);\n}\n.cube__face--left[data-v-01ab55f4] {\n    transform: rotateY(-90deg) translateZ(150px);\n}\n.cube__face--top[data-v-01ab55f4] {\n    transform: rotateX(90deg) translateZ(150px);\n}\n.cube__face--bottom[data-v-01ab55f4] {\n    transform: rotateX(-90deg) translateZ(150px);\n}\n.marquee[data-v-01ab55f4] {\n    width: 100%;\n    font-size: 2em;\n    line-height: 100px;\n    white-space: nowrap;\n    overflow: hidden;\n    box-sizing: border-box;\n}\n.marquee p[data-v-01ab55f4] {\n    color: rgba(255, 255, 255, 0.75);\n    display: inline-block;\n    padding-left: 100%;\n    -webkit-animation: marquee-data-v-01ab55f4 80s linear infinite;\n            animation: marquee-data-v-01ab55f4 80s linear infinite;\n}\n@-webkit-keyframes marquee-data-v-01ab55f4 {\n0% {\n        transform: translate(0, 0);\n}\n100% {\n        transform: translate(-100%, 0);\n}\n}\n@keyframes marquee-data-v-01ab55f4 {\n0% {\n        transform: translate(0, 0);\n}\n100% {\n        transform: translate(-100%, 0);\n}\n}\nlabel[data-v-01ab55f4] {\n    margin-right: 10px;\n}\n\n", ""]);
+exports.push([module.i, "\n#dashboards[data-v-01ab55f4] {\n    margin: 0 auto;\n}\n.scene[data-v-01ab55f4] {\n    width: 600px;\n    height: 350px;\n    margin: 65px 80px auto 100px;\n    perspective: 400px;\n    float: left;\n}\n.cube[data-v-01ab55f4] {\n    width: 600px;\n    height: 350px;\n    position: relative;\n    transform-style: preserve-3d;\n    transform: translateZ(-110px);\n    transition: transform 1s;\n}\n.cube.show-front[data-v-01ab55f4] {\n    transform: translateZ(-110px) rotateY(0deg);\n}\n.cube.show-right[data-v-01ab55f4] {\n    transform: translateZ(-110px) rotateY(-90deg);\n}\n.cube.show-back[data-v-01ab55f4] {\n    transform: translateZ(-110px) rotateX(-180deg);\n}\n.cube.show-left[data-v-01ab55f4] {\n    transform: translateZ(-110px) rotateY(90deg);\n}\n.cube.show-top[data-v-01ab55f4] {\n    transform: translateZ(-110px) rotateX(-90deg);\n}\n.cube.show-bottom[data-v-01ab55f4] {\n    transform: translateZ(-110px) rotateX(90deg);\n}\n.cube__face[data-v-01ab55f4] {\n    position: absolute;\n}\n.button[data-v-01ab55f4] {\n    margin-bottom: 1em;\n    height: 20vh;\n    border: 1px solid rgba(255, 255, 255, 0.15);\n    color: rgba(255, 255, 255, 0.75);\n}\n.clock[data-v-01ab55f4] {\n    height: 20vh;\n    font-size: 40px;\n    font-weight: bold;\n    color: white;\n    text-align: center;\n    color: rgba(255, 255, 255, 0.75);\n}\n.weather-view[data-v-01ab55f4] {\n    line-height: 1;\n    font-size: 1.2em;\n    border: none;\n}\n.cube__face--front[data-v-01ab55f4] {\n    background: hsla(0, 12%, 51%, 0.95);\n    width: 600px;\n    height: 350px;\n}\n.cube__face--right[data-v-01ab55f4] {\n    background: hsla(60, 8%, 20%, 0.7);\n    width: 350px;\n    height: 350px;\n}\n.cube__face--back[data-v-01ab55f4] {\n    background: hsla(40, 53%, 36%, 0.95);\n    width: 600px;\n    height: 350px;\n}\n.cube__face--left[data-v-01ab55f4] {\n    background: hsla(60, 8%, 20%, 0.7);\n    width: 350px;\n    height: 350px;\n}\n.cube__face--top[data-v-01ab55f4] {\n    background: hsla(242, 17%, 73%, 0.95);\n    width: 600px;\n    height: 350px;\n}\n.cube__face--bottom[data-v-01ab55f4] {\n    background: hsla(300, 10%, 25%, 0.95);\n    width: 600px;\n    height: 350px;\n}\n.cube__face--front[data-v-01ab55f4] {\n    transform: rotateY(0deg) translateZ(175px);\n}\n.cube__face--right[data-v-01ab55f4] {\n    transform: rotateY(90deg) translateZ(425px);\n}\n.cube__face--back[data-v-01ab55f4] {\n    transform: rotateY(180deg) translateZ(175px) rotate(180deg);\n}\n.cube__face--left[data-v-01ab55f4] {\n    transform: rotateY(-90deg) translateZ(175px);\n}\n.cube__face--top[data-v-01ab55f4] {\n    transform: rotateX(90deg) translateZ(175px);\n}\n.cube__face--bottom[data-v-01ab55f4] {\n    transform: rotateX(-90deg) translateZ(175px);\n}\n.marquee[data-v-01ab55f4] {\n    width: 100%;\n    font-size: 2em;\n    line-height: 100px;\n    white-space: nowrap;\n    overflow: hidden;\n    box-sizing: border-box;\n}\n.marquee p[data-v-01ab55f4] {\n    color: rgba(255, 255, 255, 0.75);\n    display: inline-block;\n    padding-left: 100%;\n    -webkit-animation: marquee-data-v-01ab55f4 80s linear infinite;\n            animation: marquee-data-v-01ab55f4 80s linear infinite;\n}\n@-webkit-keyframes marquee-data-v-01ab55f4 {\n0% {\n        transform: translate(0, 0);\n}\n100% {\n        transform: translate(-100%, 0);\n}\n}\n@keyframes marquee-data-v-01ab55f4 {\n0% {\n        transform: translate(0, 0);\n}\n100% {\n        transform: translate(-100%, 0);\n}\n}\nlabel[data-v-01ab55f4] {\n    margin-right: 10px;\n}\n\n", ""]);
 
 // exports
 
@@ -39385,6 +39385,61 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/index.js?!./node_modules/vue-material-design-icons/RemoteTv.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib??vue-loader-options!./node_modules/vue-material-design-icons/RemoteTv.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "RemoteTvIcon",
+  props: {
+    title: {
+      type: String,
+      default: "Remote Tv icon"
+    },
+    decorative: {
+      type: Boolean,
+      default: false
+    },
+    fillColor: {
+      type: String,
+      default: "currentColor"
+    },
+    size: {
+      type: Number,
+      default: 24
+    }
+  }
+});
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/index.js?!./node_modules/vue-material-design-icons/ThermometerHigh.vue?vue&type=script&lang=js&":
 /*!***********************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib??vue-loader-options!./node_modules/vue-material-design-icons/ThermometerHigh.vue?vue&type=script&lang=js& ***!
@@ -40409,6 +40464,73 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./node_modules/vue-material-design-icons/RemoteTv.vue?vue&type=template&id=099ab194&functional=true&":
+/*!******************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./node_modules/vue-material-design-icons/RemoteTv.vue?vue&type=template&id=099ab194&functional=true& ***!
+  \******************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function(_h, _vm) {
+  var _c = _vm._c
+  return _c(
+    "span",
+    _vm._g(
+      _vm._b(
+        {
+          staticClass: "material-design-icon remote-tv-icon",
+          class: [_vm.data.class, _vm.data.staticClass],
+          attrs: {
+            "aria-hidden": _vm.props.decorative,
+            "aria-label": _vm.props.title,
+            role: "img"
+          }
+        },
+        "span",
+        _vm.data.attrs,
+        false
+      ),
+      _vm.listeners
+    ),
+    [
+      _c(
+        "svg",
+        {
+          staticClass: "material-design-icon__svg",
+          attrs: {
+            fill: _vm.props.fillColor,
+            width: _vm.props.size,
+            height: _vm.props.size,
+            viewBox: "0 0 24 24"
+          }
+        },
+        [
+          _c(
+            "path",
+            {
+              attrs: {
+                d:
+                  "M9,2C7.89,2 7,2.89 7,4V20C7,21.11 7.89,22 9,22H15C16.11,22 17,21.11 17,20V4C17,2.89 16.11,2 15,2H13V4H11V2H9M11,6H13V8H15V10H13V12H11V10H9V8H11V6M9,14H11V16H9V14M13,14H15V16H13V14M9,18H11V20H9V18M13,18H15V20H13V18Z"
+              }
+            },
+            [_c("title", [_vm._v(_vm._s(_vm.props.title))])]
+          )
+        ]
+      )
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./node_modules/vue-material-design-icons/ThermometerHigh.vue?vue&type=template&id=25cf832c&functional=true&":
 /*!*************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./node_modules/vue-material-design-icons/ThermometerHigh.vue?vue&type=template&id=25cf832c&functional=true& ***!
@@ -41079,7 +41201,7 @@ var render = function() {
           id: "dashboard_general_button"
         }
       },
-      [_c("home-icon")],
+      [_c("media-icon")],
       1
     ),
     _vm._v(" "),
@@ -41095,7 +41217,7 @@ var render = function() {
                     staticClass: "cube__face cube__face--front pt-2",
                     attrs: { id: "general" }
                   },
-                  [_vm._v("General Dashboard")]
+                  [_vm._v("Media Dashboard")]
                 ),
                 _vm._v(" "),
                 _c(
@@ -42668,6 +42790,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _vue_loader_lib_loaders_templateLoader_js_vue_loader_options_vue_loader_lib_index_js_vue_loader_options_Radio_vue_vue_type_template_id_1fafefff_functional_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _vue_loader_lib_loaders_templateLoader_js_vue_loader_options_vue_loader_lib_index_js_vue_loader_options_Radio_vue_vue_type_template_id_1fafefff_functional_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-material-design-icons/RemoteTv.vue":
+/*!*************************************************************!*\
+  !*** ./node_modules/vue-material-design-icons/RemoteTv.vue ***!
+  \*************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _RemoteTv_vue_vue_type_template_id_099ab194_functional_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./RemoteTv.vue?vue&type=template&id=099ab194&functional=true& */ "./node_modules/vue-material-design-icons/RemoteTv.vue?vue&type=template&id=099ab194&functional=true&");
+/* harmony import */ var _RemoteTv_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RemoteTv.vue?vue&type=script&lang=js& */ "./node_modules/vue-material-design-icons/RemoteTv.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _RemoteTv_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _RemoteTv_vue_vue_type_template_id_099ab194_functional_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _RemoteTv_vue_vue_type_template_id_099ab194_functional_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  true,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "node_modules/vue-material-design-icons/RemoteTv.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./node_modules/vue-material-design-icons/RemoteTv.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************!*\
+  !*** ./node_modules/vue-material-design-icons/RemoteTv.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _vue_loader_lib_index_js_vue_loader_options_RemoteTv_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../vue-loader/lib??vue-loader-options!./RemoteTv.vue?vue&type=script&lang=js& */ "./node_modules/vue-loader/lib/index.js?!./node_modules/vue-material-design-icons/RemoteTv.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_vue_loader_lib_index_js_vue_loader_options_RemoteTv_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./node_modules/vue-material-design-icons/RemoteTv.vue?vue&type=template&id=099ab194&functional=true&":
+/*!************************************************************************************************************!*\
+  !*** ./node_modules/vue-material-design-icons/RemoteTv.vue?vue&type=template&id=099ab194&functional=true& ***!
+  \************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _vue_loader_lib_loaders_templateLoader_js_vue_loader_options_vue_loader_lib_index_js_vue_loader_options_RemoteTv_vue_vue_type_template_id_099ab194_functional_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../vue-loader/lib??vue-loader-options!./RemoteTv.vue?vue&type=template&id=099ab194&functional=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./node_modules/vue-material-design-icons/RemoteTv.vue?vue&type=template&id=099ab194&functional=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _vue_loader_lib_loaders_templateLoader_js_vue_loader_options_vue_loader_lib_index_js_vue_loader_options_RemoteTv_vue_vue_type_template_id_099ab194_functional_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _vue_loader_lib_loaders_templateLoader_js_vue_loader_options_vue_loader_lib_index_js_vue_loader_options_RemoteTv_vue_vue_type_template_id_099ab194_functional_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -59749,15 +59940,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_material_design_icons_WeatherSunny__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! vue-material-design-icons/WeatherSunny */ "./node_modules/vue-material-design-icons/WeatherSunny.vue");
 /* harmony import */ var vue_material_design_icons_WeatherNight__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! vue-material-design-icons/WeatherNight */ "./node_modules/vue-material-design-icons/WeatherNight.vue");
 /* harmony import */ var vue_material_design_icons_HomeAutomation__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! vue-material-design-icons/HomeAutomation */ "./node_modules/vue-material-design-icons/HomeAutomation.vue");
-/* harmony import */ var vue_material_design_icons_ViewDashboard__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! vue-material-design-icons/ViewDashboard */ "./node_modules/vue-material-design-icons/ViewDashboard.vue");
-/* harmony import */ var vue_material_design_icons_Wrench__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! vue-material-design-icons/Wrench */ "./node_modules/vue-material-design-icons/Wrench.vue");
-/* harmony import */ var vue_material_design_icons_Play__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! vue-material-design-icons/Play */ "./node_modules/vue-material-design-icons/Play.vue");
-/* harmony import */ var vue_material_design_icons_Radio__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! vue-material-design-icons/Radio */ "./node_modules/vue-material-design-icons/Radio.vue");
-/* harmony import */ var vue_material_design_icons_DoorOpen__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! vue-material-design-icons/DoorOpen */ "./node_modules/vue-material-design-icons/DoorOpen.vue");
-/* harmony import */ var vue_material_design_icons_ThermometerHigh__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! vue-material-design-icons/ThermometerHigh */ "./node_modules/vue-material-design-icons/ThermometerHigh.vue");
-/* harmony import */ var vue_material_design_icons_ThermometerLow__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! vue-material-design-icons/ThermometerLow */ "./node_modules/vue-material-design-icons/ThermometerLow.vue");
-/* harmony import */ var vue_material_design_icons_PowerStandby__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! vue-material-design-icons/PowerStandby */ "./node_modules/vue-material-design-icons/PowerStandby.vue");
-/* harmony import */ var vue_snotify__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! vue-snotify */ "./node_modules/vue-snotify/vue-snotify.esm.js");
+/* harmony import */ var vue_material_design_icons_RemoteTv__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! vue-material-design-icons/RemoteTv */ "./node_modules/vue-material-design-icons/RemoteTv.vue");
+/* harmony import */ var vue_material_design_icons_ViewDashboard__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! vue-material-design-icons/ViewDashboard */ "./node_modules/vue-material-design-icons/ViewDashboard.vue");
+/* harmony import */ var vue_material_design_icons_Wrench__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! vue-material-design-icons/Wrench */ "./node_modules/vue-material-design-icons/Wrench.vue");
+/* harmony import */ var vue_material_design_icons_Play__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! vue-material-design-icons/Play */ "./node_modules/vue-material-design-icons/Play.vue");
+/* harmony import */ var vue_material_design_icons_Radio__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! vue-material-design-icons/Radio */ "./node_modules/vue-material-design-icons/Radio.vue");
+/* harmony import */ var vue_material_design_icons_DoorOpen__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! vue-material-design-icons/DoorOpen */ "./node_modules/vue-material-design-icons/DoorOpen.vue");
+/* harmony import */ var vue_material_design_icons_ThermometerHigh__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! vue-material-design-icons/ThermometerHigh */ "./node_modules/vue-material-design-icons/ThermometerHigh.vue");
+/* harmony import */ var vue_material_design_icons_ThermometerLow__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! vue-material-design-icons/ThermometerLow */ "./node_modules/vue-material-design-icons/ThermometerLow.vue");
+/* harmony import */ var vue_material_design_icons_PowerStandby__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! vue-material-design-icons/PowerStandby */ "./node_modules/vue-material-design-icons/PowerStandby.vue");
+/* harmony import */ var vue_snotify__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! vue-snotify */ "./node_modules/vue-snotify/vue-snotify.esm.js");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -59813,6 +60005,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
 
 
 
+
 Vue.component('digital-clock', vue_digital_clock__WEBPACK_IMPORTED_MODULE_2__["default"]);
 Vue.component('weather-view', _components_WeatherComponent__WEBPACK_IMPORTED_MODULE_3__["default"]);
 Vue.component('on-icon', vue_material_design_icons_ToggleSwitch_vue__WEBPACK_IMPORTED_MODULE_4__["default"]);
@@ -59822,24 +60015,25 @@ Vue.component('sunrise-icon', vue_material_design_icons_WeatherSunset__WEBPACK_I
 Vue.component('sun-icon', vue_material_design_icons_WeatherSunny__WEBPACK_IMPORTED_MODULE_10__["default"]);
 Vue.component('moon-icon', vue_material_design_icons_WeatherNight__WEBPACK_IMPORTED_MODULE_11__["default"]);
 Vue.component('home-icon', vue_material_design_icons_HomeAutomation__WEBPACK_IMPORTED_MODULE_12__["default"]);
-Vue.component('dashboard-icon', vue_material_design_icons_ViewDashboard__WEBPACK_IMPORTED_MODULE_13__["default"]);
-Vue.component('wrench-icon', vue_material_design_icons_Wrench__WEBPACK_IMPORTED_MODULE_14__["default"]);
-Vue.component('play-icon', vue_material_design_icons_Play__WEBPACK_IMPORTED_MODULE_15__["default"]);
-Vue.component('radio-icon', vue_material_design_icons_Radio__WEBPACK_IMPORTED_MODULE_16__["default"]);
-Vue.component('door-open-icon', vue_material_design_icons_DoorOpen__WEBPACK_IMPORTED_MODULE_17__["default"]);
-Vue.component('high-temp-icon', vue_material_design_icons_ThermometerHigh__WEBPACK_IMPORTED_MODULE_18__["default"]);
-Vue.component('low-temp-icon', vue_material_design_icons_ThermometerLow__WEBPACK_IMPORTED_MODULE_19__["default"]);
-Vue.component('power-off-icon', vue_material_design_icons_PowerStandby__WEBPACK_IMPORTED_MODULE_20__["default"]);
+Vue.component('media-icon', vue_material_design_icons_RemoteTv__WEBPACK_IMPORTED_MODULE_13__["default"]);
+Vue.component('dashboard-icon', vue_material_design_icons_ViewDashboard__WEBPACK_IMPORTED_MODULE_14__["default"]);
+Vue.component('wrench-icon', vue_material_design_icons_Wrench__WEBPACK_IMPORTED_MODULE_15__["default"]);
+Vue.component('play-icon', vue_material_design_icons_Play__WEBPACK_IMPORTED_MODULE_16__["default"]);
+Vue.component('radio-icon', vue_material_design_icons_Radio__WEBPACK_IMPORTED_MODULE_17__["default"]);
+Vue.component('door-open-icon', vue_material_design_icons_DoorOpen__WEBPACK_IMPORTED_MODULE_18__["default"]);
+Vue.component('high-temp-icon', vue_material_design_icons_ThermometerHigh__WEBPACK_IMPORTED_MODULE_19__["default"]);
+Vue.component('low-temp-icon', vue_material_design_icons_ThermometerLow__WEBPACK_IMPORTED_MODULE_20__["default"]);
+Vue.component('power-off-icon', vue_material_design_icons_PowerStandby__WEBPACK_IMPORTED_MODULE_21__["default"]);
 Vue.component('check-blank-icon', vue_material_design_icons_CheckboxBlankOutline__WEBPACK_IMPORTED_MODULE_7__["default"]);
 Vue.component('check-checked-icon', vue_material_design_icons_CheckBoxOutline__WEBPACK_IMPORTED_MODULE_8__["default"]);
 
 var options = {
   toast: {
-    position: vue_snotify__WEBPACK_IMPORTED_MODULE_21__["SnotifyPosition"].rightTop,
+    position: vue_snotify__WEBPACK_IMPORTED_MODULE_22__["SnotifyPosition"].rightTop,
     timeout: 2000
   }
 };
-Vue.use(vue_snotify__WEBPACK_IMPORTED_MODULE_21__["default"], options);
+Vue.use(vue_snotify__WEBPACK_IMPORTED_MODULE_22__["default"], options);
 var app = new Vue({
   el: '#app',
   router: router

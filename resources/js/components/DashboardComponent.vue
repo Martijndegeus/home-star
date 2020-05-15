@@ -13,7 +13,7 @@
             <moon-icon/>
         </button>
         <button onclick="showGeneralDashboard()" id="dashboard_general_button" class="btn view-button float-right">
-            <home-icon/>
+            <media-icon/>
         </button>
         <div class="content">
             <div class="container-fluid">
@@ -21,7 +21,7 @@
                     <div class="dashboard">
                         <div class="scene">
                             <div class="cube">
-                                <div id="general" class="cube__face cube__face--front pt-2">General Dashboard</div>
+                                <div id="general" class="cube__face cube__face--front pt-2">Media Dashboard</div>
                                 <div id="morning" class="cube__face cube__face--back pt-2">
                                     <div class="container">
                                         <div class="row align-items-start">
@@ -218,14 +218,14 @@
     .scene {
         width: 600px;
         height: 350px;
-        margin: 50px 80px auto 100px;
-        perspective: 300px;
+        margin: 65px 80px auto 100px;
+        perspective: 400px;
         float: left;
     }
 
     .cube {
         width: 600px;
-        height: 300px;
+        height: 350px;
         position: relative;
         transform-style: preserve-3d;
         transform: translateZ(-110px);
@@ -285,61 +285,61 @@
     .cube__face--front {
         background: hsla(0, 12%, 51%, 0.95);
         width: 600px;
-        height: 300px;
+        height: 350px;
     }
 
     .cube__face--right {
         background: hsla(60, 8%, 20%, 0.7);
-        width: 300px;
-        height: 300px;
+        width: 350px;
+        height: 350px;
     }
 
     .cube__face--back {
         background: hsla(40, 53%, 36%, 0.95);
         width: 600px;
-        height: 300px;
+        height: 350px;
     }
 
     .cube__face--left {
         background: hsla(60, 8%, 20%, 0.7);
-        width: 300px;
-        height: 300px;
+        width: 350px;
+        height: 350px;
     }
 
     .cube__face--top {
         background: hsla(242, 17%, 73%, 0.95);
         width: 600px;
-        height: 300px;
+        height: 350px;
     }
 
     .cube__face--bottom {
         background: hsla(300, 10%, 25%, 0.95);
         width: 600px;
-        height: 300px;
+        height: 350px;
     }
 
     .cube__face--front {
-        transform: rotateY(0deg) translateZ(150px);
+        transform: rotateY(0deg) translateZ(175px);
     }
 
     .cube__face--right {
-        transform: rotateY(90deg) translateZ(450px);
+        transform: rotateY(90deg) translateZ(425px);
     }
 
     .cube__face--back {
-        transform: rotateY(180deg) translateZ(150px) rotate(180deg);;
+        transform: rotateY(180deg) translateZ(175px) rotate(180deg);;
     }
 
     .cube__face--left {
-        transform: rotateY(-90deg) translateZ(150px);
+        transform: rotateY(-90deg) translateZ(175px);
     }
 
     .cube__face--top {
-        transform: rotateX(90deg) translateZ(150px);
+        transform: rotateX(90deg) translateZ(175px);
     }
 
     .cube__face--bottom {
-        transform: rotateX(-90deg) translateZ(150px);
+        transform: rotateX(-90deg) translateZ(175px);
     }
 
     .marquee {
