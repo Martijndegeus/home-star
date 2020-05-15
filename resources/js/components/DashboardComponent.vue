@@ -217,7 +217,7 @@
 
     .scene {
         width: 600px;
-        height: 350px;
+        height: 400px;
         margin: 65px 80px auto 100px;
         perspective: 400px;
         float: left;
