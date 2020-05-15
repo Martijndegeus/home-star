@@ -11808,6 +11808,7 @@ body .content-wrapper {
   height: 100%;
   left: 300px;
   right: 0;
+  bottom: 0;
 }
 
 body .content-wrapper .view-button {
