@@ -4,26 +4,9 @@
 namespace App\Servers\HomeAssistant;
 
 
-class Entity
+abstract class Entity
 {
-    public static function switch(string $entityId, bool $switchOn)
-    {
-        $state = 'turn_off';
-
-        if ($switchOn) {
-            $state = 'turn_on';
-        }
-
-        $endpoint = 'services/switch/' . $state;
-
-        $response = HomeAssistantConnector::post($endpoint, [
-            'entity_id' => $entityId,
-        ]);
-
-//        return $response->body();
-
-        return $response;
-    }
+    public abstract static function switch(string $entityId,bool $switchOn);
 
     public static function all()
     {

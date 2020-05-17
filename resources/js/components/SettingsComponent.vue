@@ -39,15 +39,15 @@
                                                     <tr>
                                                         <th>Name</th>
                                                         <th>State</th>
-                                                        <th>Test</th>
                                                         <th>Include</th>
+                                                        <th>Dashboard</th>
+                                                        <th></th>
                                                     </tr>
                                                     </thead>
                                                     <tbody>
                                                     <tr v-for="device in devices.switch"
                                                         :key="device.entity_id" v-if="device.state != 0">
                                                         <td :title="device.entity_id">{{ device.attributes.friendly_name }}</td>
-                                                        <td>{{ device.state }}</td>
                                                         <td>
                                                             <span v-if="device.state === 'on'"><a href="#"
                                                                                                   @click.prevent="switchOff(device.entity_id)"><on-icon
@@ -63,6 +63,20 @@
                                                             <span v-else-if="device.state === 'off'"><a href="#"
                                                                                                         @click.prevent="switchOn(device.entity_id)"><check-blank-icon
                                                                 :size="38" title="Turn On"/></a></span>
+                                                        </td>
+                                                        <td>
+                                                            <div class="form-group">
+                                                                <select class="form-control">
+                                                                    <option value="0">Choose Dashboard</option>
+                                                                    <option value="1">Morning</option>
+                                                                    <option value="2">Day</option>
+                                                                    <option value="3">Night</option>
+                                                                    <option value="4">Media</option>
+                                                                </select>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <button class="btn btn-primary">Save</button>
                                                         </td>
                                                     </tr>
                                                     </tbody>

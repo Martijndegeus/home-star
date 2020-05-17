@@ -55,12 +55,18 @@ import HomeIcon from 'vue-material-design-icons/HomeAutomation';
 import MediaIcon from 'vue-material-design-icons/RemoteTv';
 import DashboardIcon from 'vue-material-design-icons/ViewDashboard';
 import WrenchIcon from 'vue-material-design-icons/Wrench';
+
 import PlayIcon from 'vue-material-design-icons/Play';
+import PauseIcon from 'vue-material-design-icons/Pause';
+import VolumeUpIcon from 'vue-material-design-icons/VolumePlus';
+import VolumeDownIcon from 'vue-material-design-icons/VolumeMinus';
+
 import RadioIcon from 'vue-material-design-icons/Radio';
 import OpenDoorIcon from 'vue-material-design-icons/DoorOpen';
 import HighTempIcon from 'vue-material-design-icons/ThermometerHigh';
 import LowTempIcon from 'vue-material-design-icons/ThermometerLow';
 import PowerOffIcon from 'vue-material-design-icons/PowerStandby';
+import SleepIcon from 'vue-material-design-icons/Sleep';
 
 Vue.component('digital-clock', DigitalClock);
 Vue.component('weather-view', WeatherComponent);
@@ -76,11 +82,15 @@ Vue.component('media-icon', MediaIcon);
 Vue.component('dashboard-icon', DashboardIcon);
 Vue.component('wrench-icon', WrenchIcon);
 Vue.component('play-icon', PlayIcon);
+Vue.component('pause-icon', PauseIcon);
+Vue.component('volume-up-icon', VolumeUpIcon);
+Vue.component('volume-down-icon', VolumeDownIcon);
 Vue.component('radio-icon', RadioIcon);
 Vue.component('door-open-icon', OpenDoorIcon);
 Vue.component('high-temp-icon', HighTempIcon);
 Vue.component('low-temp-icon', LowTempIcon);
 Vue.component('power-off-icon', PowerOffIcon);
+Vue.component('sleep-icon', SleepIcon);
 
 Vue.component('check-blank-icon', CheckMarkIcon);
 Vue.component('check-checked-icon', CheckMarkIconChecked);

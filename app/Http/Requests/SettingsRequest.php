@@ -24,7 +24,9 @@ class SettingsRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'entity_id' => ['required', 'string'],
+            'dashboard' => ['required', 'int', 'min:1'],
+            ''
         ];
     }
 }

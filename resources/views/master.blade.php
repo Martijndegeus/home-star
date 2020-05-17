@@ -59,6 +59,8 @@
     }, false);
 
     sidebar.addEventListener('click', function(e) {
+        e.preventDefault();
+
         body.classList.toggle('menu-hidden');
     }, false);
 

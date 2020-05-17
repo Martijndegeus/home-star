@@ -21,14 +21,26 @@
                     <div class="dashboard">
                         <div class="scene">
                             <div class="cube">
-                                <div id="general" class="cube__face cube__face--front pt-2">Media Dashboard</div>
+                                <div id="general" class="cube__face cube__face--front pt-2">
+                                    <div class="container">
+                                        <div class="row align-items-start">
+                                            <div class="col-3"></div>
+                                            <div class="col-6">
+                                                <div v-if="mediaInfo !== null" class="media-progress">
+                                                    <div class="media-progress-fill" style="width: 43.5%"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div id="morning" class="cube__face cube__face--back pt-2">
                                     <div class="container">
                                         <div class="row align-items-start">
                                             <div class="col-3">
-                                                <div class="button d-flex align-items-center justify-content-center">
+                                                <a href="#" @click.prevent="switchOn('script.radio')"
+                                                   class="button d-flex align-items-center justify-content-center">
                                                     <radio-icon :size="36"></radio-icon>
-                                                </div>
+                                                </a>
                                             </div>
                                             <div
                                                 class="col-6 text-center d-flex align-items-center justify-content-center">
@@ -43,9 +55,16 @@
                                                 </div>
                                             </div>
                                             <div class="col-3">
-                                                <div class="button d-flex align-items-center justify-content-center">
+                                                <a href="#" @click.prevent="switchOn('script.1587942336983')"
+                                                   class="button d-flex align-items-center justify-content-center">
                                                     <door-open-icon :size="36"></door-open-icon>
-                                                </div>
+                                                </a>
+                                            </div>
+                                            <div class="col-3">
+                                                <a href="#" @click.prevent="switchOn('script.1587935371473')"
+                                                   class="button d-flex align-items-center justify-content-center">
+                                                    <power-off-icon :size="36"></power-off-icon>
+                                                </a>
                                             </div>
                                             <div class="col-12">
                                                 <div class="marquee">
@@ -63,25 +82,29 @@
                                     <div class="container">
                                         <div class="row align-items-start">
                                             <div class="col-6">
-
                                                 <div class="row align-items-start">
-                                                    <div class="col-12 text-center d-flex align-items-center justify-content-center">
-                                                        <digital-clock :displaySeconds="true" class="clock"></digital-clock>
+                                                    <div
+                                                        class="col-12 text-center d-flex align-items-center justify-content-center">
+                                                        <digital-clock :displaySeconds="true"
+                                                                       class="clock"></digital-clock>
                                                     </div>
                                                     <div class="col-6">
-                                                        <div class="button d-flex align-items-center justify-content-center">
+                                                        <a href="#" @click.prevent="switchOn('script.radio')"
+                                                           class="button d-flex align-items-center justify-content-center">
                                                             <radio-icon :size="36"></radio-icon>
-                                                        </div>
+                                                        </a>
                                                     </div>
                                                     <div class="col-6">
-                                                        <div class="button d-flex align-items-center justify-content-center">
+                                                        <div
+                                                            class="button d-flex align-items-center justify-content-center">
                                                             <power-off-icon :size="36"></power-off-icon>
                                                         </div>
                                                     </div>
                                                     <div class="col-6">
-                                                        <div class="button d-flex align-items-center justify-content-center">
+                                                        <a href="#" @click.prevent="switchOn('script.1587942336983')"
+                                                           class="button d-flex align-items-center justify-content-center">
                                                             <door-open-icon :size="36"></door-open-icon>
-                                                        </div>
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -109,12 +132,63 @@
                                     <div class="container">
                                         <div class="row align-items-start">
                                             <div class="col-3">
-
+                                                <a href="#" @click.prevent="switchOn('script.radio')"
+                                                   class="button d-flex align-items-center justify-content-center">
+                                                    <radio-icon :size="36"></radio-icon>
+                                                </a>
                                             </div>
                                             <div
                                                 class="col-6 text-center d-flex align-items-center justify-content-center">
                                                 <digital-clock :displaySeconds="true"
                                                                class="clock"></digital-clock>
+                                            </div>
+                                            <div class="col-3">
+                                                <div v-if="weather !== null" class="weather-view button text-center">
+                                                    <img class="float-left" :src="weather.weather[0].icons.small">
+                                                    <p class="pt-3">{{ weather.main.temp.toFixed(1) }}&deg;C ({{
+                                                        weather.main.feels_like.toFixed(1) }}&deg;C)</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-3">
+                                                <a href="#" @click.prevent="switchOn('script.1587942336983')"
+                                                   class="button d-flex align-items-center justify-content-center">
+                                                    <sleep-icon :size="36"></sleep-icon>
+                                                </a>
+                                            </div>
+                                            <div class="col-3">
+                                                <a href="#" @click.prevent="play('media_player.living_room_tv')"
+                                                   class="button d-flex align-items-center justify-content-center">
+                                                    <play-icon :size="36"></play-icon>
+                                                </a>
+                                            </div>
+                                            <div class="col-3">
+                                                <a href="#" @click.prevent="pause('media_player.living_room_tv')"
+                                                   class="button d-flex align-items-center justify-content-center">
+                                                    <pause-icon :size="36"></pause-icon>
+                                                </a>
+                                            </div>
+                                            <div class="col-3">
+
+                                            </div>
+                                            <div class="col-3">
+                                                <div class="button" v-if="mediaInfo !== null">
+                                                    <div v-if="mediaInfo !== null && mediaInfo.attributes.entity_picture !== null" class="media-image">
+                                                        <img :src="mediaInfo.attributes.entity_picture"/>
+                                                    </div>
+                                                    <p class="media-app">{{ mediaInfo.attributes.app_name }}</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-3">
+                                                <a href="#" @click.prevent="volumeDown('media_player.living_room_tv')"
+                                                   class="button d-flex align-items-center justify-content-center">
+                                                    <volume-down-icon :size="36"></volume-down-icon>
+                                                </a>
+                                            </div>
+                                            <div class="col-3">
+                                                <a href="#" @click.prevent="volumeUp('media_player.living_room_tv')"
+                                                   class="button d-flex align-items-center justify-content-center">
+                                                    <volume-up-icon :size="36"></volume-up-icon>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
@@ -134,24 +208,33 @@
         data() {
             return {
                 interval: null,
+                mediaInterval: null,
                 activeDashboard: 0,
                 headlines: [],
                 weather: null,
+                mediaInfo: null,
             }
         },
         name: "DashboardComponent.vue",
         mounted() {
             this.interval = setInterval(() => {
-                this.changeDashboard();
-                this.getHeadlines();
-                this.getWeather();
+                this.refreshDashboard();
             }, 60000);
+
+            this.mediaInterval = setInterval(() => {
+                this.getMediaInfo();
+            }, 5000);
 
             this.changeDashboard();
             this.getHeadlines();
             this.getWeather();
         },
         methods: {
+            refreshDashboard() {
+                this.changeDashboard();
+                this.getHeadlines();
+                this.getWeather();
+            },
             showMorningDashboard() {
                 let cube = document.getElementsByClassName('cube')[0];
                 cube.classList.remove('show-top', 'show-bottom', 'show-front', 'show-back');
@@ -176,6 +259,8 @@
                 let now = new Date();
                 let hour = now.getHours();
 
+                clearInterval(this.interval);
+
                 if (hour > 6 && hour < 12) {
                     this.showMorningDashboard();
                 } else if (hour > 11 && hour < 18) {
@@ -185,6 +270,8 @@
                 } else {
                     this.showGeneralDashboard();
                 }
+
+                this.interval = setInterval(this.refreshDashboard, 60000);
             },
             getHeadlines() {
                 let _this = this;
@@ -198,13 +285,76 @@
             getWeather() {
                 let _this = this;
                 axios.get('api/weather/neerpelt').then(function (result) {
-                    console.log(result.data);
                     _this.weather = result.data;
                 }).catch(function (error) {
                     console.log(error);
                     _this.$snotify.error('Something went wrong...');
                 });
-            }
+            },
+            getMediaInfo() {
+                let _this = this;
+                axios.get('api/media/info').then(function (result) {
+                    console.log(result.data);
+                    _this.mediaInfo = result.data;
+                }).catch(function (error) {
+                    console.log(error);
+                    _this.$snotify.error('Something went wrong...');
+                });
+            },
+            changeSwitch(entityId) {
+                let _this = this;
+                axios.get('api/switches/' + entityId + '/change').then(() => {
+                    console.log('Changed state for ' + entityId);
+                }).catch(function (error) {
+                    console.log(error);
+                    _this.$snotify.error('Something went wrong...');
+                });
+            },
+            switchOn(entityId) {
+                let _this = this;
+                axios.get('api/scripts/' + entityId + '/on').then(() => {
+                    console.log('Switched ' + entityId + ' on');
+                }).catch(function (error) {
+                    console.log(error);
+                    _this.$snotify.error('Something went wrong...');
+                });
+            },
+            play(entityId) {
+                let _this = this;
+                axios.get('api/media/' + entityId + '/play').then(() => {
+                    console.log('Playing on ' + entityId);
+                }).catch(function (error) {
+                    console.log(error);
+                    _this.$snotify.error('Something went wrong...');
+                });
+            },
+            pause(entityId) {
+                let _this = this;
+                axios.get('api/media/' + entityId + '/pause').then(() => {
+                    console.log('Paused ' + entityId);
+                }).catch(function (error) {
+                    console.log(error);
+                    _this.$snotify.error('Something went wrong...');
+                });
+            },
+            volumeUp(entityId) {
+                let _this = this;
+                axios.get('api/media/' + entityId + '/volume-up').then(() => {
+                    console.log('Volume increased on ' + entityId);
+                }).catch(function (error) {
+                    console.log(error);
+                    _this.$snotify.error('Something went wrong...');
+                });
+            },
+            volumeDown(entityId) {
+                let _this = this;
+                axios.get('api/media/' + entityId + '/volume-down').then(() => {
+                    console.log('Volume decreased on ' + entityId);
+                }).catch(function (error) {
+                    console.log(error);
+                    _this.$snotify.error('Something went wrong...');
+                });
+            },
         }
     }
 </script>
@@ -261,7 +411,9 @@
     }
 
     .button {
+        position: relative;
         margin-bottom: 1em;
+        overflow: hidden;
         height: 20vh;
         border: 1px solid rgba(255, 255, 255, 0.15);
         color: rgba(255, 255, 255, 0.75);
@@ -274,6 +426,25 @@
         color: white;
         text-align: center;
         color: rgba(255, 255, 255, 0.75);
+    }
+
+    p.media-app {
+        color: white;
+        text-shadow: #000 1px 1px 3px;
+        position: absolute;
+        top: 35%;
+        left: 0;
+        right: 0;
+        text-align: center;
+        display: block;
+    }
+
+    .media-image {
+        height: 20vh;
+    }
+
+    .media-image > img {
+        max-height: 100%;
     }
 
     .weather-view {
@@ -307,7 +478,7 @@
     }
 
     .cube__face--top {
-        background: hsla(242, 17%, 73%, 0.95);
+        background: hsla(240, 4%, 43%, 0.95);
         width: 600px;
         height: 350px;
     }
@@ -355,7 +526,19 @@
         color: rgba(255, 255, 255, 0.75);
         display: inline-block;
         padding-left: 100%;
-        animation: marquee 80s linear infinite;
+        animation: marquee 120s linear infinite;
+    }
+
+    .media-progress {
+        width: 100%;
+        height: 4px;
+        background: rgb(0, 0, 0)
+    }
+
+    .media-progress-fill {
+        height: 100%;
+        width: 43.55%;
+        background: rgb(97, 74, 74)
     }
 
     @keyframes marquee {
