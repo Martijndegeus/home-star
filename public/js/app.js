@@ -2113,6 +2113,39 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -7084,7 +7117,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n#dashboards[data-v-01ab55f4] {\n    margin: 0 auto;\n}\n.scene[data-v-01ab55f4] {\n    width: 600px;\n    height: 400px;\n    margin: 65px 80px auto 100px;\n    perspective: 400px;\n    float: left;\n}\n.cube[data-v-01ab55f4] {\n    width: 600px;\n    height: 350px;\n    position: relative;\n    transform-style: preserve-3d;\n    transform: translateZ(-110px);\n    transition: transform 1s;\n}\n.cube.show-front[data-v-01ab55f4] {\n    transform: translateZ(-110px) rotateY(0deg);\n}\n.cube.show-right[data-v-01ab55f4] {\n    transform: translateZ(-110px) rotateY(-90deg);\n}\n.cube.show-back[data-v-01ab55f4] {\n    transform: translateZ(-110px) rotateX(-180deg);\n}\n.cube.show-left[data-v-01ab55f4] {\n    transform: translateZ(-110px) rotateY(90deg);\n}\n.cube.show-top[data-v-01ab55f4] {\n    transform: translateZ(-110px) rotateX(-90deg);\n}\n.cube.show-bottom[data-v-01ab55f4] {\n    transform: translateZ(-110px) rotateX(90deg);\n}\n.cube__face[data-v-01ab55f4] {\n    position: absolute;\n}\n.button[data-v-01ab55f4] {\n    position: relative;\n    margin-bottom: 1em;\n    overflow: hidden;\n    height: 20vh;\n    border: 1px solid rgba(255, 255, 255, 0.15);\n    color: rgba(255, 255, 255, 0.75);\n}\n.clock[data-v-01ab55f4] {\n    height: 20vh;\n    font-size: 40px;\n    font-weight: bold;\n    color: white;\n    text-align: center;\n    color: rgba(255, 255, 255, 0.75);\n}\np.media-app[data-v-01ab55f4] {\n    color: white;\n    text-shadow: #000 1px 1px 3px;\n    position: absolute;\n    top: 35%;\n    left: 0;\n    right: 0;\n    text-align: center;\n    display: block;\n}\n.media-image[data-v-01ab55f4] {\n    height: 20vh;\n}\n.media-image > img[data-v-01ab55f4] {\n    max-height: 100%;\n}\n.weather-view[data-v-01ab55f4] {\n    line-height: 1;\n    font-size: 1.2em;\n    border: none;\n}\n.cube__face--front[data-v-01ab55f4] {\n    background: hsla(0, 12%, 51%, 0.95);\n    width: 600px;\n    height: 350px;\n}\n.cube__face--right[data-v-01ab55f4] {\n    background: hsla(60, 8%, 20%, 0.7);\n    width: 350px;\n    height: 350px;\n}\n.cube__face--back[data-v-01ab55f4] {\n    background: hsla(40, 53%, 36%, 0.95);\n    width: 600px;\n    height: 350px;\n}\n.cube__face--left[data-v-01ab55f4] {\n    background: hsla(60, 8%, 20%, 0.7);\n    width: 350px;\n    height: 350px;\n}\n.cube__face--top[data-v-01ab55f4] {\n    background: hsla(240, 4%, 43%, 0.95);\n    width: 600px;\n    height: 350px;\n}\n.cube__face--bottom[data-v-01ab55f4] {\n    background: hsla(300, 10%, 25%, 0.95);\n    width: 600px;\n    height: 350px;\n}\n.cube__face--front[data-v-01ab55f4] {\n    transform: rotateY(0deg) translateZ(175px);\n}\n.cube__face--right[data-v-01ab55f4] {\n    transform: rotateY(90deg) translateZ(425px);\n}\n.cube__face--back[data-v-01ab55f4] {\n    transform: rotateY(180deg) translateZ(175px) rotate(180deg);\n}\n.cube__face--left[data-v-01ab55f4] {\n    transform: rotateY(-90deg) translateZ(175px);\n}\n.cube__face--top[data-v-01ab55f4] {\n    transform: rotateX(90deg) translateZ(175px);\n}\n.cube__face--bottom[data-v-01ab55f4] {\n    transform: rotateX(-90deg) translateZ(175px);\n}\n.marquee[data-v-01ab55f4] {\n    width: 100%;\n    font-size: 2em;\n    line-height: 100px;\n    white-space: nowrap;\n    overflow: hidden;\n    box-sizing: border-box;\n}\n.marquee p[data-v-01ab55f4] {\n    color: rgba(255, 255, 255, 0.75);\n    display: inline-block;\n    padding-left: 100%;\n    -webkit-animation: marquee-data-v-01ab55f4 120s linear infinite;\n            animation: marquee-data-v-01ab55f4 120s linear infinite;\n}\n.media-progress[data-v-01ab55f4] {\n    width: 100%;\n    height: 4px;\n    background: rgb(0, 0, 0)\n}\n.media-progress-fill[data-v-01ab55f4] {\n    height: 100%;\n    width: 43.55%;\n    background: rgb(97, 74, 74)\n}\n@-webkit-keyframes marquee-data-v-01ab55f4 {\n0% {\n        transform: translate(0, 0);\n}\n100% {\n        transform: translate(-100%, 0);\n}\n}\n@keyframes marquee-data-v-01ab55f4 {\n0% {\n        transform: translate(0, 0);\n}\n100% {\n        transform: translate(-100%, 0);\n}\n}\nlabel[data-v-01ab55f4] {\n    margin-right: 10px;\n}\n\n", ""]);
+exports.push([module.i, "\n#dashboards[data-v-01ab55f4] {\n    margin: 0 auto;\n}\n.scene[data-v-01ab55f4] {\n    width: 600px;\n    height: 400px;\n    margin: 65px 80px auto 100px;\n    perspective: 400px;\n    float: left;\n}\n.cube[data-v-01ab55f4] {\n    width: 600px;\n    height: 350px;\n    position: relative;\n    transform-style: preserve-3d;\n    transform: translateZ(-110px);\n    transition: transform 1s;\n}\n.cube.show-front[data-v-01ab55f4] {\n    transform: translateZ(-110px) rotateY(0deg);\n}\n.cube.show-right[data-v-01ab55f4] {\n    transform: translateZ(-110px) rotateY(-90deg);\n}\n.cube.show-back[data-v-01ab55f4] {\n    transform: translateZ(-110px) rotateX(-180deg);\n}\n.cube.show-left[data-v-01ab55f4] {\n    transform: translateZ(-110px) rotateY(90deg);\n}\n.cube.show-top[data-v-01ab55f4] {\n    transform: translateZ(-110px) rotateX(-90deg);\n}\n.cube.show-bottom[data-v-01ab55f4] {\n    transform: translateZ(-110px) rotateX(90deg);\n}\n.cube__face[data-v-01ab55f4] {\n    position: absolute;\n}\n.button[data-v-01ab55f4] {\n    position: relative;\n    margin-bottom: 1em;\n    overflow: hidden;\n    height: 20vh;\n    border: 1px solid rgba(255, 255, 255, 0.15);\n    color: rgba(255, 255, 255, 0.75);\n}\n.button.active[data-v-01ab55f4] {\n    background: rgba(255, 255, 255, 0.15);\n}\n.small-button[data-v-01ab55f4] {\n    height: 10vh;\n}\n.clock[data-v-01ab55f4] {\n    height: 20vh;\n    font-size: 40px;\n    font-weight: bold;\n    color: white;\n    text-align: center;\n    color: rgba(255, 255, 255, 0.75);\n}\np.media-app[data-v-01ab55f4] {\n    color: white;\n    text-shadow: #000 1px 1px 3px;\n    position: absolute;\n    top: 35%;\n    left: 0;\n    right: 0;\n    text-align: center;\n    display: block;\n}\n.media-image[data-v-01ab55f4] {\n    height: 20vh;\n}\n.media-image > img[data-v-01ab55f4] {\n    max-height: 100%;\n}\n.media-counter[data-v-01ab55f4] {\n    margin-top: .6em;\n    color: rgba(255, 255, 255, 0.75);\n}\n.weather-view[data-v-01ab55f4] {\n    line-height: 1;\n    font-size: 1.2em;\n    border: none;\n}\n.cube__face--front[data-v-01ab55f4] {\n    background: hsla(0, 12%, 51%, 0.95);\n    width: 600px;\n    height: 350px;\n}\n.cube__face--right[data-v-01ab55f4] {\n    background: hsla(60, 8%, 20%, 0.7);\n    width: 350px;\n    height: 350px;\n}\n.cube__face--back[data-v-01ab55f4] {\n    background: hsla(40, 53%, 36%, 0.95);\n    width: 600px;\n    height: 350px;\n}\n.cube__face--left[data-v-01ab55f4] {\n    background: hsla(60, 8%, 20%, 0.7);\n    width: 350px;\n    height: 350px;\n}\n.cube__face--top[data-v-01ab55f4] {\n    background: hsla(240, 4%, 43%, 0.95);\n    width: 600px;\n    height: 350px;\n}\n.cube__face--bottom[data-v-01ab55f4] {\n    background: hsla(300, 10%, 25%, 0.95);\n    width: 600px;\n    height: 350px;\n}\n.cube__face--front[data-v-01ab55f4] {\n    transform: rotateY(0deg) translateZ(175px);\n}\n.cube__face--right[data-v-01ab55f4] {\n    transform: rotateY(90deg) translateZ(425px);\n}\n.cube__face--back[data-v-01ab55f4] {\n    transform: rotateY(180deg) translateZ(175px) rotate(180deg);\n}\n.cube__face--left[data-v-01ab55f4] {\n    transform: rotateY(-90deg) translateZ(175px);\n}\n.cube__face--top[data-v-01ab55f4] {\n    transform: rotateX(90deg) translateZ(175px);\n}\n.cube__face--bottom[data-v-01ab55f4] {\n    transform: rotateX(-90deg) translateZ(175px);\n}\n.marquee[data-v-01ab55f4] {\n    width: 100%;\n    font-size: 2em;\n    line-height: 100px;\n    white-space: nowrap;\n    overflow: hidden;\n    box-sizing: border-box;\n}\n.marquee p[data-v-01ab55f4] {\n    color: rgba(255, 255, 255, 0.75);\n    display: inline-block;\n    padding-left: 100%;\n    -webkit-animation: marquee-data-v-01ab55f4 120s linear infinite;\n            animation: marquee-data-v-01ab55f4 120s linear infinite;\n}\n.media-progress[data-v-01ab55f4] {\n    width: 100%;\n    height: 4px;\n    background: rgba(255, 255, 255, 0.15);\n}\n.media-progress-fill[data-v-01ab55f4] {\n    height: 100%;\n    width: 43.55%;\n    background: rgba(255, 255, 255, 0.75)\n}\n@-webkit-keyframes marquee-data-v-01ab55f4 {\n0% {\n        transform: translate(0, 0);\n}\n100% {\n        transform: translate(-100%, 0);\n}\n}\n@keyframes marquee-data-v-01ab55f4 {\n0% {\n        transform: translate(0, 0);\n}\n100% {\n        transform: translate(-100%, 0);\n}\n}\nlabel[data-v-01ab55f4] {\n    margin-right: 10px;\n}\n\n", ""]);
 
 // exports
 
@@ -42139,11 +42172,11 @@ var render = function() {
                                     [
                                       _c("low-temp-icon"),
                                       _vm._v(
-                                        "\n                                                    " +
+                                        "\n                                                        " +
                                           _vm._s(
                                             _vm.weather.main.temp_min.toFixed(1)
                                           ) +
-                                          "\n                                                "
+                                          "\n                                                    "
                                       )
                                     ],
                                     1
@@ -42154,11 +42187,11 @@ var render = function() {
                                     { staticClass: "float-right" },
                                     [
                                       _vm._v(
-                                        "\n                                                    " +
+                                        "\n                                                        " +
                                           _vm._s(
                                             _vm.weather.main.temp_max.toFixed(1)
                                           ) +
-                                          "\n                                                    "
+                                          "\n                                                        "
                                       ),
                                       _c("high-temp-icon")
                                     ],
@@ -42210,12 +42243,69 @@ var render = function() {
                               "col-6 text-center d-flex align-items-center justify-content-center"
                           },
                           [
-                            _c("digital-clock", {
-                              staticClass: "clock",
-                              attrs: { displaySeconds: true }
-                            })
-                          ],
-                          1
+                            _c(
+                              "div",
+                              [
+                                _c("digital-clock", {
+                                  staticClass: "clock",
+                                  attrs: { displaySeconds: true }
+                                }),
+                                _vm._v(" "),
+                                _vm.mediaInfo !== null
+                                  ? _c("div", [
+                                      _c(
+                                        "small",
+                                        {
+                                          staticClass:
+                                            "float-left media-counter"
+                                        },
+                                        [_vm._v("0:00")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "small",
+                                        {
+                                          staticClass:
+                                            "float-right media-counter"
+                                        },
+                                        [
+                                          _vm._v(
+                                            _vm._s(
+                                              new Date(
+                                                _vm.mediaInfo.attributes
+                                                  .media_duration * 1000
+                                              )
+                                                .toISOString()
+                                                .substr(11, 8)
+                                            )
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        { staticClass: "media-progress" },
+                                        [
+                                          _c("div", {
+                                            staticClass: "media-progress-fill",
+                                            style: {
+                                              width:
+                                                (_vm.mediaInfo.attributes
+                                                  .media_position /
+                                                  _vm.mediaInfo.attributes
+                                                    .media_duration) *
+                                                  100 +
+                                                "%"
+                                            }
+                                          })
+                                        ]
+                                      )
+                                    ])
+                                  : _vm._e()
+                              ],
+                              1
+                            )
+                          ]
                         ),
                         _vm._v(" "),
                         _c("div", { staticClass: "col-3" }, [
@@ -42273,6 +42363,11 @@ var render = function() {
                             {
                               staticClass:
                                 "button d-flex align-items-center justify-content-center",
+                              class:
+                                _vm.mediaInfo !== null &&
+                                _vm.mediaInfo.state === "playing"
+                                  ? "active"
+                                  : "",
                               attrs: { href: "#" },
                               on: {
                                 click: function($event) {
@@ -42292,6 +42387,11 @@ var render = function() {
                             {
                               staticClass:
                                 "button d-flex align-items-center justify-content-center",
+                              class:
+                                _vm.mediaInfo !== null &&
+                                _vm.mediaInfo.state === "paused"
+                                  ? "active"
+                                  : "",
                               attrs: { href: "#" },
                               on: {
                                 click: function($event) {
@@ -42307,7 +42407,7 @@ var render = function() {
                           )
                         ]),
                         _vm._v(" "),
-                        _c("div", { staticClass: "col-3" }),
+                        _vm._m(0),
                         _vm._v(" "),
                         _c("div", { staticClass: "col-3" }, [
                           _vm.mediaInfo !== null
@@ -42387,7 +42487,16 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-3" }, [
+      _c("div", { staticClass: "row" })
+    ])
+  }
+]
 render._withStripped = true
 
 

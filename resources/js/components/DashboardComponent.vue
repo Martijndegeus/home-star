@@ -139,8 +139,18 @@
                                             </div>
                                             <div
                                                 class="col-6 text-center d-flex align-items-center justify-content-center">
-                                                <digital-clock :displaySeconds="true"
-                                                               class="clock"></digital-clock>
+                                                <div>
+                                                    <digital-clock :displaySeconds="true"
+                                                                   class="clock"></digital-clock>
+                                                    <div v-if="mediaInfo !== null">
+                                                        <small class="float-left media-counter">0:00</small>
+                                                        <small class="float-right media-counter">{{ new Date((mediaInfo.attributes.media_duration) * 1000).toISOString().substr(11, 8) }}</small>
+                                                        <div class="media-progress">
+                                                            <div class="media-progress-fill"
+                                                                 v-bind:style="{ width: (mediaInfo.attributes.media_position / mediaInfo.attributes.media_duration) * 100 + '%' }"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div class="col-3">
                                                 <div v-if="weather !== null" class="weather-view button text-center">
@@ -156,23 +166,46 @@
                                                 </a>
                                             </div>
                                             <div class="col-3">
-                                                <a href="#" @click.prevent="play('media_player.living_room_tv')"
+                                                <a href="#" v-bind:class="mediaInfo !== null && mediaInfo.state === 'playing' ? 'active' : ''" @click.prevent="play('media_player.living_room_tv')"
                                                    class="button d-flex align-items-center justify-content-center">
                                                     <play-icon :size="36"></play-icon>
                                                 </a>
                                             </div>
                                             <div class="col-3">
-                                                <a href="#" @click.prevent="pause('media_player.living_room_tv')"
+                                                <a href="#" v-bind:class="mediaInfo !== null && mediaInfo.state === 'paused' ? 'active' : ''" @click.prevent="pause('media_player.living_room_tv')"
                                                    class="button d-flex align-items-center justify-content-center">
                                                     <pause-icon :size="36"></pause-icon>
                                                 </a>
                                             </div>
                                             <div class="col-3">
-
+                                                <div class="row">
+<!--                                                    <div class="col-6">-->
+<!--                                                        <a href="#" class="button small-button d-flex align-items-center justify-content-center">-->
+<!--                                                            <pause-icon :size="30"></pause-icon>-->
+<!--                                                        </a>-->
+<!--                                                    </div>-->
+<!--                                                    <div class="col-6">-->
+<!--                                                        <a href="#" class="button small-button d-flex align-items-center justify-content-center">-->
+<!--                                                            <pause-icon :size="30"></pause-icon>-->
+<!--                                                        </a>-->
+<!--                                                    </div>-->
+<!--                                                    <div class="col-6">-->
+<!--                                                        <a href="#" class="button small-button d-flex align-items-center justify-content-center">-->
+<!--                                                            <pause-icon :size="30"></pause-icon>-->
+<!--                                                        </a>-->
+<!--                                                    </div>-->
+<!--                                                    <div class="col-6">-->
+<!--                                                        <a href="#" class="button small-button d-flex align-items-center justify-content-center">-->
+<!--                                                            <pause-icon :size="30"></pause-icon>-->
+<!--                                                        </a>-->
+<!--                                                    </div>-->
+                                                </div>
                                             </div>
                                             <div class="col-3">
                                                 <div class="button" v-if="mediaInfo !== null">
-                                                    <div v-if="mediaInfo !== null && mediaInfo.attributes.entity_picture !== null" class="media-image">
+                                                    <div
+                                                        v-if="mediaInfo !== null && mediaInfo.attributes.entity_picture !== null"
+                                                        class="media-image">
                                                         <img :src="mediaInfo.attributes.entity_picture"/>
                                                     </div>
                                                     <p class="media-app">{{ mediaInfo.attributes.app_name }}</p>
@@ -419,6 +452,14 @@
         color: rgba(255, 255, 255, 0.75);
     }
 
+    .button.active {
+        background: rgba(255, 255, 255, 0.15);
+    }
+
+    .small-button {
+        height: 10vh;
+    }
+
     .clock {
         height: 20vh;
         font-size: 40px;
@@ -445,6 +486,11 @@
 
     .media-image > img {
         max-height: 100%;
+    }
+
+    .media-counter {
+        margin-top: .6em;
+        color: rgba(255, 255, 255, 0.75);
     }
 
     .weather-view {
@@ -532,13 +578,13 @@
     .media-progress {
         width: 100%;
         height: 4px;
-        background: rgb(0, 0, 0)
+        background: rgba(255, 255, 255, 0.15);
     }
 
     .media-progress-fill {
         height: 100%;
         width: 43.55%;
-        background: rgb(97, 74, 74)
+        background: rgba(255, 255, 255, 0.75)
     }
 
     @keyframes marquee {
