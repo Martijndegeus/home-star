@@ -37,7 +37,7 @@
                                     <div class="container">
                                         <div class="row align-items-start">
                                             <div class="col-3">
-                                                <a href="#" @click.prevent="switchOn('script.radio')"
+                                                <a href="#" @click.prevent="scriptOn('script.radio')"
                                                    class="button d-flex align-items-center justify-content-center">
                                                     <radio-icon :size="36"></radio-icon>
                                                 </a>
@@ -55,13 +55,13 @@
                                                 </div>
                                             </div>
                                             <div class="col-3">
-                                                <a href="#" @click.prevent="switchOn('script.1587942336983')"
+                                                <a href="#" @click.prevent="scriptOn('script.1587942336983')"
                                                    class="button d-flex align-items-center justify-content-center">
                                                     <door-open-icon :size="36"></door-open-icon>
                                                 </a>
                                             </div>
                                             <div class="col-3">
-                                                <a href="#" @click.prevent="switchOn('script.1587935371473')"
+                                                <a href="#" @click.prevent="scriptOn('script.1587935371473')"
                                                    class="button d-flex align-items-center justify-content-center">
                                                     <power-off-icon :size="36"></power-off-icon>
                                                 </a>
@@ -89,7 +89,7 @@
                                                                        class="clock"></digital-clock>
                                                     </div>
                                                     <div class="col-6">
-                                                        <a href="#" @click.prevent="switchOn('script.radio')"
+                                                        <a href="#" @click.prevent="scriptOn('script.radio')"
                                                            class="button d-flex align-items-center justify-content-center">
                                                             <radio-icon :size="36"></radio-icon>
                                                         </a>
@@ -101,7 +101,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-6">
-                                                        <a href="#" @click.prevent="switchOn('script.1587942336983')"
+                                                        <a href="#" @click.prevent="scriptOn('script.1587942336983')"
                                                            class="button d-flex align-items-center justify-content-center">
                                                             <door-open-icon :size="36"></door-open-icon>
                                                         </a>
@@ -132,7 +132,7 @@
                                     <div class="container">
                                         <div class="row align-items-start">
                                             <div class="col-3">
-                                                <a href="#" @click.prevent="switchOn('script.radio')"
+                                                <a href="#" @click.prevent="scriptOn('script.radio')"
                                                    class="button d-flex align-items-center justify-content-center">
                                                     <radio-icon :size="36"></radio-icon>
                                                 </a>
@@ -160,46 +160,36 @@
                                                 </div>
                                             </div>
                                             <div class="col-3">
-                                                <a href="#" @click.prevent="switchOn('script.1587942336983')"
+                                                <a href="#" @click.prevent="scriptOn('script.1587942336983')"
                                                    class="button d-flex align-items-center justify-content-center">
                                                     <sleep-icon :size="36"></sleep-icon>
                                                 </a>
                                             </div>
                                             <div class="col-3">
                                                 <a href="#" v-bind:class="mediaInfo !== null && mediaInfo.state === 'playing' ? 'active' : ''" @click.prevent="play('media_player.living_room_tv')"
-                                                   class="button d-flex align-items-center justify-content-center">
+                                                   class="button d-flex align-items-center justify-content-center" id="play_button">
                                                     <play-icon :size="36"></play-icon>
                                                 </a>
                                             </div>
                                             <div class="col-3">
                                                 <a href="#" v-bind:class="mediaInfo !== null && mediaInfo.state === 'paused' ? 'active' : ''" @click.prevent="pause('media_player.living_room_tv')"
-                                                   class="button d-flex align-items-center justify-content-center">
+                                                   class="button d-flex align-items-center justify-content-center" id="pause_button">
                                                     <pause-icon :size="36"></pause-icon>
                                                 </a>
                                             </div>
                                             <div class="col-3">
-                                                <div class="row">
-<!--                                                    <div class="col-6">-->
-<!--                                                        <a href="#" class="button small-button d-flex align-items-center justify-content-center">-->
-<!--                                                            <pause-icon :size="30"></pause-icon>-->
-<!--                                                        </a>-->
-<!--                                                    </div>-->
-<!--                                                    <div class="col-6">-->
-<!--                                                        <a href="#" class="button small-button d-flex align-items-center justify-content-center">-->
-<!--                                                            <pause-icon :size="30"></pause-icon>-->
-<!--                                                        </a>-->
-<!--                                                    </div>-->
-<!--                                                    <div class="col-6">-->
-<!--                                                        <a href="#" class="button small-button d-flex align-items-center justify-content-center">-->
-<!--                                                            <pause-icon :size="30"></pause-icon>-->
-<!--                                                        </a>-->
-<!--                                                    </div>-->
-<!--                                                    <div class="col-6">-->
-<!--                                                        <a href="#" class="button small-button d-flex align-items-center justify-content-center">-->
-<!--                                                            <pause-icon :size="30"></pause-icon>-->
-<!--                                                        </a>-->
-<!--                                                    </div>-->
-                                                </div>
+                                                <a href="#" @click.prevent="changeSwitch('switch.bar')" class="button small-button d-flex align-items-center justify-content-center">
+                                                    <sofa-icon :size="30"></sofa-icon>
+                                                </a>
+                                                <a href="#" class="button small-button d-flex align-items-center justify-content-center">
+                                                    <bar-icon :size="30"></bar-icon>
+                                                </a>
+                                                <a href="#" class="button small-button d-flex align-items-center justify-content-center">
+                                                    <bed-icon :size="30"></bed-icon>
+                                                </a>
+                                                <a href="#" class="button small-button d-flex align-items-center justify-content-center">
+                                                    <pause-icon :size="30"></pause-icon>
+                                                </a>
                                             </div>
                                             <div class="col-3">
                                                 <div class="button" v-if="mediaInfo !== null">
@@ -221,6 +211,20 @@
                                                 <a href="#" @click.prevent="volumeUp('media_player.living_room_tv')"
                                                    class="button d-flex align-items-center justify-content-center">
                                                     <volume-up-icon :size="36"></volume-up-icon>
+                                                </a>
+                                            </div>
+                                            <div class="col-3">
+                                                <a href="#" class="button small-button d-flex align-items-center justify-content-center">
+                                                    <pause-icon :size="30"></pause-icon>
+                                                </a>
+                                                <a href="#" class="button small-button d-flex align-items-center justify-content-center">
+                                                    <pause-icon :size="30"></pause-icon>
+                                                </a>
+                                                <a href="#" class="button small-button d-flex align-items-center justify-content-center">
+                                                    <pause-icon :size="30"></pause-icon>
+                                                </a>
+                                                <a href="#" class="button small-button d-flex align-items-center justify-content-center">
+                                                    <pause-icon :size="30"></pause-icon>
                                                 </a>
                                             </div>
                                         </div>
@@ -256,7 +260,7 @@
 
             this.mediaInterval = setInterval(() => {
                 this.getMediaInfo();
-            }, 5000);
+            }, 30000);
 
             this.changeDashboard();
             this.getHeadlines();
@@ -345,6 +349,24 @@
             },
             switchOn(entityId) {
                 let _this = this;
+                axios.get('api/switches/' + entityId + '/on').then(() => {
+                    console.log('Switched ' + entityId + ' on');
+                }).catch(function (error) {
+                    console.log(error);
+                    _this.$snotify.error('Something went wrong...');
+                });
+            },
+            switchOff(entityId) {
+                let _this = this;
+                axios.get('api/switches/' + entityId + '/off').then(() => {
+                    console.log('Switched ' + entityId + ' off');
+                }).catch(function (error) {
+                    console.log(error);
+                    _this.$snotify.error('Something went wrong...');
+                });
+            },
+            scriptOn(entityId) {
+                let _this = this;
                 axios.get('api/scripts/' + entityId + '/on').then(() => {
                     console.log('Switched ' + entityId + ' on');
                 }).catch(function (error) {
@@ -354,6 +376,10 @@
             },
             play(entityId) {
                 let _this = this;
+                let playButton = document.getElementById('play_button');
+                let pauseButton = document.getElementById('pause_button');
+                pauseButton.classList.remove('active');
+                playButton.classList.add('active');
                 axios.get('api/media/' + entityId + '/play').then(() => {
                     console.log('Playing on ' + entityId);
                 }).catch(function (error) {
@@ -363,6 +389,10 @@
             },
             pause(entityId) {
                 let _this = this;
+                let playButton = document.getElementById('play_button');
+                let pauseButton = document.getElementById('pause_button');
+                pauseButton.classList.add('active');
+                playButton.classList.remove('active');
                 axios.get('api/media/' + entityId + '/pause').then(() => {
                     console.log('Paused ' + entityId);
                 }).catch(function (error) {
@@ -458,6 +488,9 @@
 
     .small-button {
         height: 10vh;
+        float: left;
+        width: 50%;
+        margin-bottom: 0;
     }
 
     .clock {

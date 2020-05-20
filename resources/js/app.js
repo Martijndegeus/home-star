@@ -68,6 +68,10 @@ import LowTempIcon from 'vue-material-design-icons/ThermometerLow';
 import PowerOffIcon from 'vue-material-design-icons/PowerStandby';
 import SleepIcon from 'vue-material-design-icons/Sleep';
 
+import SofaIcon from 'vue-material-design-icons/Sofa';
+import BedIcon from 'vue-material-design-icons/Bed';
+import BarIcon from 'vue-material-design-icons/FoodForkDrink';
+
 Vue.component('digital-clock', DigitalClock);
 Vue.component('weather-view', WeatherComponent);
 
@@ -91,6 +95,10 @@ Vue.component('high-temp-icon', HighTempIcon);
 Vue.component('low-temp-icon', LowTempIcon);
 Vue.component('power-off-icon', PowerOffIcon);
 Vue.component('sleep-icon', SleepIcon);
+
+Vue.component('sofa-icon', SofaIcon);
+Vue.component('bed-icon', BedIcon);
+Vue.component('bar-icon', BarIcon);
 
 Vue.component('check-blank-icon', CheckMarkIcon);
 Vue.component('check-checked-icon', CheckMarkIconChecked);

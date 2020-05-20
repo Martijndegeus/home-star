@@ -9,13 +9,13 @@ class SwitchController extends Controller
 {
     public function changeState(string $entityId)
     {
-        if(SwitchEntity::getState($entityId) === 'on') {
-            $response = $this->switchOff($entityId);
+        if(SwitchEntity::getState($entityId) == 'on') {
+            $response = SwitchEntity::switch($entityId, false);
         } else {
-            $response = $this->switchOn($entityId);
+            $response = SwitchEntity::switch($entityId, true);
         }
 
-        return response()->json($response);
+        return response()->json(SwitchEntity::getState($entityId));
     }
 
     public function switchOn(String $entityId)

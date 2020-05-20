@@ -16,7 +16,7 @@ class ScriptController extends Controller
             $response = $this->switchOn($entityId);
         }
 
-        return response()->json($response);
+        return $response;
     }
 
     public function switchOn(String $entityId)
