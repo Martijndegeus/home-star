@@ -2150,6 +2150,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2290,6 +2308,8 @@ __webpack_require__.r(__webpack_exports__);
       var button = event.target;
       axios.get('api/lights/' + entityId + '/change').then(function (result) {
         console.log('Changed state for ' + entityId);
+        console.log(button);
+        console.log(result.data);
 
         if (result.data === 'on') {
           button.classList.add('active');
@@ -42733,11 +42753,11 @@ var render = function() {
                                     [
                                       _c("low-temp-icon"),
                                       _vm._v(
-                                        "\n                                                        " +
+                                        "\n                                                    " +
                                           _vm._s(
                                             _vm.weather.main.temp_min.toFixed(1)
                                           ) +
-                                          "\n                                                    "
+                                          "\n                                                "
                                       )
                                     ],
                                     1
@@ -42748,11 +42768,11 @@ var render = function() {
                                     { staticClass: "float-right" },
                                     [
                                       _vm._v(
-                                        "\n                                                        " +
+                                        "\n                                                    " +
                                           _vm._s(
                                             _vm.weather.main.temp_max.toFixed(1)
                                           ) +
-                                          "\n                                                        "
+                                          "\n                                                    "
                                       ),
                                       _c("high-temp-icon")
                                     ],

@@ -144,7 +144,9 @@
                                                                    class="clock"></digital-clock>
                                                     <div v-if="mediaInfo !== null">
                                                         <small class="float-left media-counter">0:00</small>
-                                                        <small class="float-right media-counter">{{ new Date((mediaInfo.attributes.media_duration) * 1000).toISOString().substr(11, 8) }}</small>
+                                                        <small class="float-right media-counter">{{ new
+                                                            Date((mediaInfo.attributes.media_duration) *
+                                                            1000).toISOString().substr(11, 8) }}</small>
                                                         <div class="media-progress">
                                                             <div class="media-progress-fill"
                                                                  v-bind:style="{ width: (mediaInfo.attributes.media_position / mediaInfo.attributes.media_duration) * 100 + '%' }"></div>
@@ -166,28 +168,44 @@
                                                 </a>
                                             </div>
                                             <div class="col-3">
-                                                <a href="#" v-bind:class="mediaInfo !== null && mediaInfo.state === 'playing' ? 'active' : ''" @click.prevent="play('media_player.living_room_tv')"
-                                                   class="button d-flex align-items-center justify-content-center" id="play_button">
+                                                <a href="#"
+                                                   v-bind:class="mediaInfo !== null && mediaInfo.state === 'playing' ? 'active' : ''"
+                                                   @click.prevent="play('media_player.living_room_tv')"
+                                                   class="button d-flex align-items-center justify-content-center"
+                                                   id="play_button">
                                                     <play-icon :size="36"></play-icon>
                                                 </a>
                                             </div>
                                             <div class="col-3">
-                                                <a href="#" v-bind:class="mediaInfo !== null && mediaInfo.state === 'paused' ? 'active' : ''" @click.prevent="pause('media_player.living_room_tv')"
-                                                   class="button d-flex align-items-center justify-content-center" id="pause_button">
+                                                <a href="#"
+                                                   v-bind:class="mediaInfo !== null && mediaInfo.state === 'paused' ? 'active' : ''"
+                                                   @click.prevent="pause('media_player.living_room_tv')"
+                                                   class="button d-flex align-items-center justify-content-center"
+                                                   id="pause_button">
                                                     <pause-icon :size="36"></pause-icon>
                                                 </a>
                                             </div>
                                             <div class="col-3">
-                                                <a href="#" @click.prevent="changeSwitch('switch.sitting_area_standing', $event)" :class="entityStates !== null && entityStates.switch['switch.sitting_area_standing'].state === 'on' ? 'active ' : ''" class="button small-button d-flex align-items-center justify-content-center">
+                                                <a href="#"
+                                                   @click.prevent="changeSwitch('switch.sitting_area_standing', $event)"
+                                                   :class="entityStates !== null && entityStates.switch['switch.sitting_area_standing'].state === 'on' ? 'active ' : ''"
+                                                   class="button small-button d-flex align-items-center justify-content-center">
                                                     <sofa-icon :size="30"></sofa-icon>
                                                 </a>
-                                                <a href="#" @click.prevent="changeSwitch('switch.bar', $event)" :class="entityStates !== null && entityStates.switch['switch.bar'].state === 'on' ? 'active ' : ''" class="button small-button d-flex align-items-center justify-content-center">
+                                                <a href="#" @click.prevent="changeSwitch('switch.bar', $event)"
+                                                   :class="entityStates !== null && entityStates.switch['switch.bar'].state === 'on' ? 'active ' : ''"
+                                                   class="button small-button d-flex align-items-center justify-content-center">
                                                     <bar-icon :size="30"></bar-icon>
                                                 </a>
-                                                <a href="#" @click.prevent="changeLight('light.bedroom', $event)"  :class="entityStates !== null && entityStates.light['light.bedroom'].state === 'on' ? 'active ' : ''"class="button small-button d-flex align-items-center justify-content-center">
+                                                <a href="#" @click.prevent="changeLight('light.bedroom', $event)"
+                                                   :class="entityStates !== null && entityStates.light['light.bedroom'].state === 'on' ? 'active ' : ''"
+                                                   class="button small-button d-flex align-items-center justify-content-center">
                                                     <bed-icon :size="30"></bed-icon>
                                                 </a>
-                                                <a href="#" @click.prevent="changeSwitch('switch.reading_light', $event)" :class="entityStates !== null && entityStates.switch['switch.reading_light'].state === 'on' ? 'active ' : ''" class="button small-button d-flex align-items-center justify-content-center">
+                                                <a href="#"
+                                                   @click.prevent="changeSwitch('switch.reading_light', $event)"
+                                                   :class="entityStates !== null && entityStates.switch['switch.reading_light'].state === 'on' ? 'active ' : ''"
+                                                   class="button small-button d-flex align-items-center justify-content-center">
                                                     <desk-light-icon :size="30"></desk-light-icon>
                                                 </a>
                                             </div>
@@ -214,18 +232,18 @@
                                                 </a>
                                             </div>
                                             <div class="col-3">
-<!--                                                <a href="#" class="button small-button d-flex align-items-center justify-content-center">-->
-<!--                                                    <pause-icon :size="30"></pause-icon>-->
-<!--                                                </a>-->
-<!--                                                <a href="#" class="button small-button d-flex align-items-center justify-content-center">-->
-<!--                                                    <pause-icon :size="30"></pause-icon>-->
-<!--                                                </a>-->
-<!--                                                <a href="#" class="button small-button d-flex align-items-center justify-content-center">-->
-<!--                                                    <pause-icon :size="30"></pause-icon>-->
-<!--                                                </a>-->
-<!--                                                <a href="#" class="button small-button d-flex align-items-center justify-content-center">-->
-<!--                                                    <pause-icon :size="30"></pause-icon>-->
-<!--                                                </a>-->
+                                                <!--                                                <a href="#" class="button small-button d-flex align-items-center justify-content-center">-->
+                                                <!--                                                    <pause-icon :size="30"></pause-icon>-->
+                                                <!--                                                </a>-->
+                                                <!--                                                <a href="#" class="button small-button d-flex align-items-center justify-content-center">-->
+                                                <!--                                                    <pause-icon :size="30"></pause-icon>-->
+                                                <!--                                                </a>-->
+                                                <!--                                                <a href="#" class="button small-button d-flex align-items-center justify-content-center">-->
+                                                <!--                                                    <pause-icon :size="30"></pause-icon>-->
+                                                <!--                                                </a>-->
+                                                <!--                                                <a href="#" class="button small-button d-flex align-items-center justify-content-center">-->
+                                                <!--                                                    <pause-icon :size="30"></pause-icon>-->
+                                                <!--                                                </a>-->
                                             </div>
                                         </div>
                                     </div>
@@ -353,7 +371,7 @@
                 let button = event.target;
                 axios.get('api/switches/' + entityId + '/change').then((result) => {
                     console.log('Changed state for ' + entityId);
-                    if(result.data === 'on') {
+                    if (result.data === 'on') {
                         button.classList.add('active');
                     } else {
                         button.classList.remove('active');
@@ -368,7 +386,9 @@
                 let button = event.target;
                 axios.get('api/lights/' + entityId + '/change').then((result) => {
                     console.log('Changed state for ' + entityId);
-                    if(result.data === 'on') {
+                    console.log(button);
+                    console.log(result.data);
+                    if (result.data === 'on') {
                         button.classList.add('active');
                     } else {
                         button.classList.remove('active');
