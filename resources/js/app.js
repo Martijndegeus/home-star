@@ -71,6 +71,7 @@ import SleepIcon from 'vue-material-design-icons/Sleep';
 import SofaIcon from 'vue-material-design-icons/Sofa';
 import BedIcon from 'vue-material-design-icons/Bed';
 import BarIcon from 'vue-material-design-icons/FoodForkDrink';
+import DeskLightIcon from 'vue-material-design-icons/DeskLamp';
 
 Vue.component('digital-clock', DigitalClock);
 Vue.component('weather-view', WeatherComponent);
@@ -99,6 +100,7 @@ Vue.component('sleep-icon', SleepIcon);
 Vue.component('sofa-icon', SofaIcon);
 Vue.component('bed-icon', BedIcon);
 Vue.component('bar-icon', BarIcon);
+Vue.component('desk-light-icon', DeskLightIcon);
 
 Vue.component('check-blank-icon', CheckMarkIcon);
 Vue.component('check-checked-icon', CheckMarkIconChecked);

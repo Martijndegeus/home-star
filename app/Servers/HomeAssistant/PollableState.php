@@ -10,7 +10,7 @@ trait PollableState
     {
         $endpoint = 'states/' . $entityId;
 
-        return HomeAssistantConnector::get($endpoint);
+        return json_decode(HomeAssistantConnector::get($endpoint))->state;
     }
 
 }

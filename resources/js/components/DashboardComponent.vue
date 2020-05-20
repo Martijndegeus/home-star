@@ -44,7 +44,7 @@
                                             </div>
                                             <div
                                                 class="col-6 text-center d-flex align-items-center justify-content-center">
-                                                <digital-clock :displaySeconds="true"
+                                                <digital-clock :displaySeconds="false"
                                                                class="clock"></digital-clock>
                                             </div>
                                             <div class="col-3">
@@ -85,7 +85,7 @@
                                                 <div class="row align-items-start">
                                                     <div
                                                         class="col-12 text-center d-flex align-items-center justify-content-center">
-                                                        <digital-clock :displaySeconds="true"
+                                                        <digital-clock :displaySeconds="false"
                                                                        class="clock"></digital-clock>
                                                     </div>
                                                     <div class="col-6">
@@ -139,8 +139,8 @@
                                             </div>
                                             <div
                                                 class="col-6 text-center d-flex align-items-center justify-content-center">
-                                                <div>
-                                                    <digital-clock :displaySeconds="true"
+                                                <div class="clock-container-full-width">
+                                                    <digital-clock :displaySeconds="false"
                                                                    class="clock"></digital-clock>
                                                     <div v-if="mediaInfo !== null">
                                                         <small class="float-left media-counter">0:00</small>
@@ -178,17 +178,17 @@
                                                 </a>
                                             </div>
                                             <div class="col-3">
-                                                <a href="#" @click.prevent="changeSwitch('switch.bar')" class="button small-button d-flex align-items-center justify-content-center">
+                                                <a href="#" @click.prevent="changeSwitch('switch.sitting_area_standing', $event)" :class="entityStates !== null && entityStates.switch['switch.sitting_area_standing'].state === 'on' ? 'active ' : ''" class="button small-button d-flex align-items-center justify-content-center">
                                                     <sofa-icon :size="30"></sofa-icon>
                                                 </a>
-                                                <a href="#" class="button small-button d-flex align-items-center justify-content-center">
+                                                <a href="#" @click.prevent="changeSwitch('switch.bar', $event)" :class="entityStates !== null && entityStates.switch['switch.bar'].state === 'on' ? 'active ' : ''" class="button small-button d-flex align-items-center justify-content-center">
                                                     <bar-icon :size="30"></bar-icon>
                                                 </a>
-                                                <a href="#" class="button small-button d-flex align-items-center justify-content-center">
+                                                <a href="#" @click.prevent="changeLight('light.bedroom', $event)"  :class="entityStates !== null && entityStates.light['light.bedroom'].state === 'on' ? 'active ' : ''"class="button small-button d-flex align-items-center justify-content-center">
                                                     <bed-icon :size="30"></bed-icon>
                                                 </a>
-                                                <a href="#" class="button small-button d-flex align-items-center justify-content-center">
-                                                    <pause-icon :size="30"></pause-icon>
+                                                <a href="#" @click.prevent="changeSwitch('switch.reading_light', $event)" :class="entityStates !== null && entityStates.switch['switch.reading_light'].state === 'on' ? 'active ' : ''" class="button small-button d-flex align-items-center justify-content-center">
+                                                    <desk-light-icon :size="30"></desk-light-icon>
                                                 </a>
                                             </div>
                                             <div class="col-3">
@@ -214,18 +214,18 @@
                                                 </a>
                                             </div>
                                             <div class="col-3">
-                                                <a href="#" class="button small-button d-flex align-items-center justify-content-center">
-                                                    <pause-icon :size="30"></pause-icon>
-                                                </a>
-                                                <a href="#" class="button small-button d-flex align-items-center justify-content-center">
-                                                    <pause-icon :size="30"></pause-icon>
-                                                </a>
-                                                <a href="#" class="button small-button d-flex align-items-center justify-content-center">
-                                                    <pause-icon :size="30"></pause-icon>
-                                                </a>
-                                                <a href="#" class="button small-button d-flex align-items-center justify-content-center">
-                                                    <pause-icon :size="30"></pause-icon>
-                                                </a>
+<!--                                                <a href="#" class="button small-button d-flex align-items-center justify-content-center">-->
+<!--                                                    <pause-icon :size="30"></pause-icon>-->
+<!--                                                </a>-->
+<!--                                                <a href="#" class="button small-button d-flex align-items-center justify-content-center">-->
+<!--                                                    <pause-icon :size="30"></pause-icon>-->
+<!--                                                </a>-->
+<!--                                                <a href="#" class="button small-button d-flex align-items-center justify-content-center">-->
+<!--                                                    <pause-icon :size="30"></pause-icon>-->
+<!--                                                </a>-->
+<!--                                                <a href="#" class="button small-button d-flex align-items-center justify-content-center">-->
+<!--                                                    <pause-icon :size="30"></pause-icon>-->
+<!--                                                </a>-->
                                             </div>
                                         </div>
                                     </div>
@@ -250,21 +250,21 @@
                 headlines: [],
                 weather: null,
                 mediaInfo: null,
+                entityStates: null,
             }
         },
         name: "DashboardComponent.vue",
         mounted() {
             this.interval = setInterval(() => {
                 this.refreshDashboard();
-            }, 60000);
-
-            this.mediaInterval = setInterval(() => {
                 this.getMediaInfo();
-            }, 30000);
+            }, 60000);
 
             this.changeDashboard();
             this.getHeadlines();
             this.getWeather();
+            this.getMediaInfo();
+            this.getEntityStates();
         },
         methods: {
             refreshDashboard() {
@@ -331,17 +331,48 @@
             getMediaInfo() {
                 let _this = this;
                 axios.get('api/media/info').then(function (result) {
-                    console.log(result.data);
                     _this.mediaInfo = result.data;
+                    console.log(result.data);
                 }).catch(function (error) {
                     console.log(error);
                     _this.$snotify.error('Something went wrong...');
                 });
             },
-            changeSwitch(entityId) {
+            getEntityStates() {
                 let _this = this;
-                axios.get('api/switches/' + entityId + '/change').then(() => {
+                axios.get('api/entities').then(function (result) {
+                    _this.entityStates = result.data;
+                    console.log(result.data);
+                }).catch(function (error) {
+                    console.log(error);
+                    _this.$snotify.error('Something went wrong...');
+                });
+            },
+            changeSwitch(entityId, event) {
+                let _this = this;
+                let button = event.target;
+                axios.get('api/switches/' + entityId + '/change').then((result) => {
                     console.log('Changed state for ' + entityId);
+                    if(result.data === 'on') {
+                        button.classList.add('active');
+                    } else {
+                        button.classList.remove('active');
+                    }
+                }).catch(function (error) {
+                    console.log(error);
+                    _this.$snotify.error('Something went wrong...');
+                });
+            },
+            changeLight(entityId, event) {
+                let _this = this;
+                let button = event.target;
+                axios.get('api/lights/' + entityId + '/change').then((result) => {
+                    console.log('Changed state for ' + entityId);
+                    if(result.data === 'on') {
+                        button.classList.add('active');
+                    } else {
+                        button.classList.remove('active');
+                    }
                 }).catch(function (error) {
                     console.log(error);
                     _this.$snotify.error('Something went wrong...');
@@ -491,6 +522,14 @@
         float: left;
         width: 50%;
         margin-bottom: 0;
+    }
+
+    .button .material-design-icon {
+        z-index: -9;
+    }
+
+    .clock-container-full-width {
+        width: 100%;
     }
 
     .clock {

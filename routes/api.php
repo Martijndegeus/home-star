@@ -28,6 +28,10 @@ Route::get('switches/{entity}/on', ['uses' => 'Api\SwitchController@switchOn', '
 Route::get('switches/{entity}/off', ['uses' => 'Api\SwitchController@switchOff', 'name' => 'home-assistant.switches.off']);
 Route::get('switches/{entity}/change', ['uses' => 'Api\SwitchController@changeState', 'name' => 'home-assistant.switches.change']);
 
+Route::get('lights/{entity}/on', ['uses' => 'Api\LightController@lightOn', 'name' => 'home-assistant.lights.on']);
+Route::get('lights/{entity}/off', ['uses' => 'Api\LightController@lightOff', 'name' => 'home-assistant.lights.off']);
+Route::get('lights/{entity}/change', ['uses' => 'Api\LightController@changeState', 'name' => 'home-assistant.lights.change']);
+
 Route::get('media/{entity}/play', ['uses' => 'Api\MediaPlayerController@play', 'name' => 'home-assistant.media.play']);
 Route::get('media/{entity}/pause', ['uses' => 'Api\MediaPlayerController@pause', 'name' => 'home-assistant.media.pause']);
 Route::get('media/{entity}/volume-up', ['uses' => 'Api\MediaPlayerController@volumeUp', 'name' => 'home-assistant.media.volume-up']);

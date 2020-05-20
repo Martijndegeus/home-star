@@ -2158,7 +2158,8 @@ __webpack_require__.r(__webpack_exports__);
       activeDashboard: 0,
       headlines: [],
       weather: null,
-      mediaInfo: null
+      mediaInfo: null,
+      entityStates: null
     };
   },
   name: "DashboardComponent.vue",
@@ -2167,13 +2168,14 @@ __webpack_require__.r(__webpack_exports__);
 
     this.interval = setInterval(function () {
       _this2.refreshDashboard();
-    }, 60000);
-    this.mediaInterval = setInterval(function () {
+
       _this2.getMediaInfo();
-    }, 30000);
+    }, 60000);
     this.changeDashboard();
     this.getHeadlines();
     this.getWeather();
+    this.getMediaInfo();
+    this.getEntityStates();
   },
   methods: {
     refreshDashboard: function refreshDashboard() {
@@ -2244,19 +2246,56 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.get('api/media/info').then(function (result) {
-        console.log(result.data);
         _this.mediaInfo = result.data;
+        console.log(result.data);
       })["catch"](function (error) {
         console.log(error);
 
         _this.$snotify.error('Something went wrong...');
       });
     },
-    changeSwitch: function changeSwitch(entityId) {
+    getEntityStates: function getEntityStates() {
       var _this = this;
 
-      axios.get('api/switches/' + entityId + '/change').then(function () {
+      axios.get('api/entities').then(function (result) {
+        _this.entityStates = result.data;
+        console.log(result.data);
+      })["catch"](function (error) {
+        console.log(error);
+
+        _this.$snotify.error('Something went wrong...');
+      });
+    },
+    changeSwitch: function changeSwitch(entityId, event) {
+      var _this = this;
+
+      var button = event.target;
+      axios.get('api/switches/' + entityId + '/change').then(function (result) {
         console.log('Changed state for ' + entityId);
+
+        if (result.data === 'on') {
+          button.classList.add('active');
+        } else {
+          button.classList.remove('active');
+        }
+      })["catch"](function (error) {
+        console.log(error);
+
+        _this.$snotify.error('Something went wrong...');
+      });
+    },
+    changeLight: function changeLight(entityId, event) {
+      var _this = this;
+
+      var button = event.target;
+      axios.get('api/lights/' + entityId + '/change').then(function (result) {
+        console.log('Changed state for ' + entityId);
+
+        if (result.data === 'on') {
+          button.classList.add('active');
+        } else {
+          button.classList.remove('active');
+        }
       })["catch"](function (error) {
         console.log(error);
 
@@ -7151,7 +7190,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n#dashboards[data-v-01ab55f4] {\n    margin: 0 auto;\n}\n.scene[data-v-01ab55f4] {\n    width: 600px;\n    height: 400px;\n    margin: 65px 80px auto 100px;\n    perspective: 400px;\n    float: left;\n}\n.cube[data-v-01ab55f4] {\n    width: 600px;\n    height: 350px;\n    position: relative;\n    transform-style: preserve-3d;\n    transform: translateZ(-110px);\n    transition: transform 1s;\n}\n.cube.show-front[data-v-01ab55f4] {\n    transform: translateZ(-110px) rotateY(0deg);\n}\n.cube.show-right[data-v-01ab55f4] {\n    transform: translateZ(-110px) rotateY(-90deg);\n}\n.cube.show-back[data-v-01ab55f4] {\n    transform: translateZ(-110px) rotateX(-180deg);\n}\n.cube.show-left[data-v-01ab55f4] {\n    transform: translateZ(-110px) rotateY(90deg);\n}\n.cube.show-top[data-v-01ab55f4] {\n    transform: translateZ(-110px) rotateX(-90deg);\n}\n.cube.show-bottom[data-v-01ab55f4] {\n    transform: translateZ(-110px) rotateX(90deg);\n}\n.cube__face[data-v-01ab55f4] {\n    position: absolute;\n}\n.button[data-v-01ab55f4] {\n    position: relative;\n    margin-bottom: 1em;\n    overflow: hidden;\n    height: 20vh;\n    border: 1px solid rgba(255, 255, 255, 0.15);\n    color: rgba(255, 255, 255, 0.75);\n}\n.button.active[data-v-01ab55f4] {\n    background: rgba(255, 255, 255, 0.15);\n}\n.small-button[data-v-01ab55f4] {\n    height: 10vh;\n    float: left;\n    width: 50%;\n    margin-bottom: 0;\n}\n.clock[data-v-01ab55f4] {\n    height: 20vh;\n    font-size: 40px;\n    font-weight: bold;\n    color: white;\n    text-align: center;\n    color: rgba(255, 255, 255, 0.75);\n}\np.media-app[data-v-01ab55f4] {\n    color: white;\n    text-shadow: #000 1px 1px 3px;\n    position: absolute;\n    top: 35%;\n    left: 0;\n    right: 0;\n    text-align: center;\n    display: block;\n}\n.media-image[data-v-01ab55f4] {\n    height: 20vh;\n}\n.media-image > img[data-v-01ab55f4] {\n    max-height: 100%;\n}\n.media-counter[data-v-01ab55f4] {\n    margin-top: .6em;\n    color: rgba(255, 255, 255, 0.75);\n}\n.weather-view[data-v-01ab55f4] {\n    line-height: 1;\n    font-size: 1.2em;\n    border: none;\n}\n.cube__face--front[data-v-01ab55f4] {\n    background: hsla(0, 12%, 51%, 0.95);\n    width: 600px;\n    height: 350px;\n}\n.cube__face--right[data-v-01ab55f4] {\n    background: hsla(60, 8%, 20%, 0.7);\n    width: 350px;\n    height: 350px;\n}\n.cube__face--back[data-v-01ab55f4] {\n    background: hsla(40, 53%, 36%, 0.95);\n    width: 600px;\n    height: 350px;\n}\n.cube__face--left[data-v-01ab55f4] {\n    background: hsla(60, 8%, 20%, 0.7);\n    width: 350px;\n    height: 350px;\n}\n.cube__face--top[data-v-01ab55f4] {\n    background: hsla(240, 4%, 43%, 0.95);\n    width: 600px;\n    height: 350px;\n}\n.cube__face--bottom[data-v-01ab55f4] {\n    background: hsla(300, 10%, 25%, 0.95);\n    width: 600px;\n    height: 350px;\n}\n.cube__face--front[data-v-01ab55f4] {\n    transform: rotateY(0deg) translateZ(175px);\n}\n.cube__face--right[data-v-01ab55f4] {\n    transform: rotateY(90deg) translateZ(425px);\n}\n.cube__face--back[data-v-01ab55f4] {\n    transform: rotateY(180deg) translateZ(175px) rotate(180deg);\n}\n.cube__face--left[data-v-01ab55f4] {\n    transform: rotateY(-90deg) translateZ(175px);\n}\n.cube__face--top[data-v-01ab55f4] {\n    transform: rotateX(90deg) translateZ(175px);\n}\n.cube__face--bottom[data-v-01ab55f4] {\n    transform: rotateX(-90deg) translateZ(175px);\n}\n.marquee[data-v-01ab55f4] {\n    width: 100%;\n    font-size: 2em;\n    line-height: 100px;\n    white-space: nowrap;\n    overflow: hidden;\n    box-sizing: border-box;\n}\n.marquee p[data-v-01ab55f4] {\n    color: rgba(255, 255, 255, 0.75);\n    display: inline-block;\n    padding-left: 100%;\n    -webkit-animation: marquee-data-v-01ab55f4 120s linear infinite;\n            animation: marquee-data-v-01ab55f4 120s linear infinite;\n}\n.media-progress[data-v-01ab55f4] {\n    width: 100%;\n    height: 4px;\n    background: rgba(255, 255, 255, 0.15);\n}\n.media-progress-fill[data-v-01ab55f4] {\n    height: 100%;\n    width: 43.55%;\n    background: rgba(255, 255, 255, 0.75)\n}\n@-webkit-keyframes marquee-data-v-01ab55f4 {\n0% {\n        transform: translate(0, 0);\n}\n100% {\n        transform: translate(-100%, 0);\n}\n}\n@keyframes marquee-data-v-01ab55f4 {\n0% {\n        transform: translate(0, 0);\n}\n100% {\n        transform: translate(-100%, 0);\n}\n}\nlabel[data-v-01ab55f4] {\n    margin-right: 10px;\n}\n\n", ""]);
+exports.push([module.i, "\n#dashboards[data-v-01ab55f4] {\n    margin: 0 auto;\n}\n.scene[data-v-01ab55f4] {\n    width: 600px;\n    height: 400px;\n    margin: 65px 80px auto 100px;\n    perspective: 400px;\n    float: left;\n}\n.cube[data-v-01ab55f4] {\n    width: 600px;\n    height: 350px;\n    position: relative;\n    transform-style: preserve-3d;\n    transform: translateZ(-110px);\n    transition: transform 1s;\n}\n.cube.show-front[data-v-01ab55f4] {\n    transform: translateZ(-110px) rotateY(0deg);\n}\n.cube.show-right[data-v-01ab55f4] {\n    transform: translateZ(-110px) rotateY(-90deg);\n}\n.cube.show-back[data-v-01ab55f4] {\n    transform: translateZ(-110px) rotateX(-180deg);\n}\n.cube.show-left[data-v-01ab55f4] {\n    transform: translateZ(-110px) rotateY(90deg);\n}\n.cube.show-top[data-v-01ab55f4] {\n    transform: translateZ(-110px) rotateX(-90deg);\n}\n.cube.show-bottom[data-v-01ab55f4] {\n    transform: translateZ(-110px) rotateX(90deg);\n}\n.cube__face[data-v-01ab55f4] {\n    position: absolute;\n}\n.button[data-v-01ab55f4] {\n    position: relative;\n    margin-bottom: 1em;\n    overflow: hidden;\n    height: 20vh;\n    border: 1px solid rgba(255, 255, 255, 0.15);\n    color: rgba(255, 255, 255, 0.75);\n}\n.button.active[data-v-01ab55f4] {\n    background: rgba(255, 255, 255, 0.15);\n}\n.small-button[data-v-01ab55f4] {\n    height: 10vh;\n    float: left;\n    width: 50%;\n    margin-bottom: 0;\n}\n.button .material-design-icon[data-v-01ab55f4] {\n    z-index: -9;\n}\n.clock-container-full-width[data-v-01ab55f4] {\n    width: 100%;\n}\n.clock[data-v-01ab55f4] {\n    height: 20vh;\n    font-size: 40px;\n    font-weight: bold;\n    color: white;\n    text-align: center;\n    color: rgba(255, 255, 255, 0.75);\n}\np.media-app[data-v-01ab55f4] {\n    color: white;\n    text-shadow: #000 1px 1px 3px;\n    position: absolute;\n    top: 35%;\n    left: 0;\n    right: 0;\n    text-align: center;\n    display: block;\n}\n.media-image[data-v-01ab55f4] {\n    height: 20vh;\n}\n.media-image > img[data-v-01ab55f4] {\n    max-height: 100%;\n}\n.media-counter[data-v-01ab55f4] {\n    margin-top: .6em;\n    color: rgba(255, 255, 255, 0.75);\n}\n.weather-view[data-v-01ab55f4] {\n    line-height: 1;\n    font-size: 1.2em;\n    border: none;\n}\n.cube__face--front[data-v-01ab55f4] {\n    background: hsla(0, 12%, 51%, 0.95);\n    width: 600px;\n    height: 350px;\n}\n.cube__face--right[data-v-01ab55f4] {\n    background: hsla(60, 8%, 20%, 0.7);\n    width: 350px;\n    height: 350px;\n}\n.cube__face--back[data-v-01ab55f4] {\n    background: hsla(40, 53%, 36%, 0.95);\n    width: 600px;\n    height: 350px;\n}\n.cube__face--left[data-v-01ab55f4] {\n    background: hsla(60, 8%, 20%, 0.7);\n    width: 350px;\n    height: 350px;\n}\n.cube__face--top[data-v-01ab55f4] {\n    background: hsla(240, 4%, 43%, 0.95);\n    width: 600px;\n    height: 350px;\n}\n.cube__face--bottom[data-v-01ab55f4] {\n    background: hsla(300, 10%, 25%, 0.95);\n    width: 600px;\n    height: 350px;\n}\n.cube__face--front[data-v-01ab55f4] {\n    transform: rotateY(0deg) translateZ(175px);\n}\n.cube__face--right[data-v-01ab55f4] {\n    transform: rotateY(90deg) translateZ(425px);\n}\n.cube__face--back[data-v-01ab55f4] {\n    transform: rotateY(180deg) translateZ(175px) rotate(180deg);\n}\n.cube__face--left[data-v-01ab55f4] {\n    transform: rotateY(-90deg) translateZ(175px);\n}\n.cube__face--top[data-v-01ab55f4] {\n    transform: rotateX(90deg) translateZ(175px);\n}\n.cube__face--bottom[data-v-01ab55f4] {\n    transform: rotateX(-90deg) translateZ(175px);\n}\n.marquee[data-v-01ab55f4] {\n    width: 100%;\n    font-size: 2em;\n    line-height: 100px;\n    white-space: nowrap;\n    overflow: hidden;\n    box-sizing: border-box;\n}\n.marquee p[data-v-01ab55f4] {\n    color: rgba(255, 255, 255, 0.75);\n    display: inline-block;\n    padding-left: 100%;\n    -webkit-animation: marquee-data-v-01ab55f4 120s linear infinite;\n            animation: marquee-data-v-01ab55f4 120s linear infinite;\n}\n.media-progress[data-v-01ab55f4] {\n    width: 100%;\n    height: 4px;\n    background: rgba(255, 255, 255, 0.15);\n}\n.media-progress-fill[data-v-01ab55f4] {\n    height: 100%;\n    width: 43.55%;\n    background: rgba(255, 255, 255, 0.75)\n}\n@-webkit-keyframes marquee-data-v-01ab55f4 {\n0% {\n        transform: translate(0, 0);\n}\n100% {\n        transform: translate(-100%, 0);\n}\n}\n@keyframes marquee-data-v-01ab55f4 {\n0% {\n        transform: translate(0, 0);\n}\n100% {\n        transform: translate(-100%, 0);\n}\n}\nlabel[data-v-01ab55f4] {\n    margin-right: 10px;\n}\n\n", ""]);
 
 // exports
 
@@ -39406,6 +39445,61 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/index.js?!./node_modules/vue-material-design-icons/DeskLamp.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib??vue-loader-options!./node_modules/vue-material-design-icons/DeskLamp.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "DeskLampIcon",
+  props: {
+    title: {
+      type: String,
+      default: "Desk Lamp icon"
+    },
+    decorative: {
+      type: Boolean,
+      default: false
+    },
+    fillColor: {
+      type: String,
+      default: "currentColor"
+    },
+    size: {
+      type: Number,
+      default: 24
+    }
+  }
+});
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/index.js?!./node_modules/vue-material-design-icons/DoorOpen.vue?vue&type=script&lang=js&":
 /*!****************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib??vue-loader-options!./node_modules/vue-material-design-icons/DoorOpen.vue?vue&type=script&lang=js& ***!
@@ -40813,6 +40907,73 @@ var render = function(_h, _vm) {
               attrs: {
                 d:
                   "M12,15.5A3.5,3.5 0 0,1 8.5,12A3.5,3.5 0 0,1 12,8.5A3.5,3.5 0 0,1 15.5,12A3.5,3.5 0 0,1 12,15.5M19.43,12.97C19.47,12.65 19.5,12.33 19.5,12C19.5,11.67 19.47,11.34 19.43,11L21.54,9.37C21.73,9.22 21.78,8.95 21.66,8.73L19.66,5.27C19.54,5.05 19.27,4.96 19.05,5.05L16.56,6.05C16.04,5.66 15.5,5.32 14.87,5.07L14.5,2.42C14.46,2.18 14.25,2 14,2H10C9.75,2 9.54,2.18 9.5,2.42L9.13,5.07C8.5,5.32 7.96,5.66 7.44,6.05L4.95,5.05C4.73,4.96 4.46,5.05 4.34,5.27L2.34,8.73C2.21,8.95 2.27,9.22 2.46,9.37L4.57,11C4.53,11.34 4.5,11.67 4.5,12C4.5,12.33 4.53,12.65 4.57,12.97L2.46,14.63C2.27,14.78 2.21,15.05 2.34,15.27L4.34,18.73C4.46,18.95 4.73,19.03 4.95,18.95L7.44,17.94C7.96,18.34 8.5,18.68 9.13,18.93L9.5,21.58C9.54,21.82 9.75,22 10,22H14C14.25,22 14.46,21.82 14.5,21.58L14.87,18.93C15.5,18.67 16.04,18.34 16.56,17.94L19.05,18.95C19.27,19.03 19.54,18.95 19.66,18.73L21.66,15.27C21.78,15.05 21.73,14.78 21.54,14.63L19.43,12.97Z"
+              }
+            },
+            [_c("title", [_vm._v(_vm._s(_vm.props.title))])]
+          )
+        ]
+      )
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./node_modules/vue-material-design-icons/DeskLamp.vue?vue&type=template&id=22173bbd&functional=true&":
+/*!******************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./node_modules/vue-material-design-icons/DeskLamp.vue?vue&type=template&id=22173bbd&functional=true& ***!
+  \******************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function(_h, _vm) {
+  var _c = _vm._c
+  return _c(
+    "span",
+    _vm._g(
+      _vm._b(
+        {
+          staticClass: "material-design-icon desk-lamp-icon",
+          class: [_vm.data.class, _vm.data.staticClass],
+          attrs: {
+            "aria-hidden": _vm.props.decorative,
+            "aria-label": _vm.props.title,
+            role: "img"
+          }
+        },
+        "span",
+        _vm.data.attrs,
+        false
+      ),
+      _vm.listeners
+    ),
+    [
+      _c(
+        "svg",
+        {
+          staticClass: "material-design-icon__svg",
+          attrs: {
+            fill: _vm.props.fillColor,
+            width: _vm.props.size,
+            height: _vm.props.size,
+            viewBox: "0 0 24 24"
+          }
+        },
+        [
+          _c(
+            "path",
+            {
+              attrs: {
+                d:
+                  "M10.85,2L9.18,4.5L10.32,5.25L7.14,10C7.1,10 7.05,10 7,10A2,2 0 0,0 5,12C5,12.94 5.66,13.75 6.58,13.95L10.62,20H7V22H17V20H13L8.53,13.28C8.83,12.92 9,12.47 9,12C9,11.7 8.93,11.4 8.8,11.13L12,6.37C11.78,8.05 12.75,9.89 14.45,11L18.89,4.37C17.2,3.24 15.12,3.04 13.65,3.87L10.85,2M18.33,7L16.67,9.5C17.35,9.95 18.29,9.77 18.75,9.08C19.21,8.39 19,7.46 18.33,7Z"
               }
             },
             [_c("title", [_vm._v(_vm._s(_vm.props.title))])]
@@ -42357,7 +42518,7 @@ var render = function() {
                           [
                             _c("digital-clock", {
                               staticClass: "clock",
-                              attrs: { displaySeconds: true }
+                              attrs: { displaySeconds: false }
                             })
                           ],
                           1
@@ -42475,7 +42636,7 @@ var render = function() {
                               [
                                 _c("digital-clock", {
                                   staticClass: "clock",
-                                  attrs: { displaySeconds: true }
+                                  attrs: { displaySeconds: false }
                                 })
                               ],
                               1
@@ -42572,11 +42733,11 @@ var render = function() {
                                     [
                                       _c("low-temp-icon"),
                                       _vm._v(
-                                        "\n                                                    " +
+                                        "\n                                                        " +
                                           _vm._s(
                                             _vm.weather.main.temp_min.toFixed(1)
                                           ) +
-                                          "\n                                                "
+                                          "\n                                                    "
                                       )
                                     ],
                                     1
@@ -42587,11 +42748,11 @@ var render = function() {
                                     { staticClass: "float-right" },
                                     [
                                       _vm._v(
-                                        "\n                                                    " +
+                                        "\n                                                        " +
                                           _vm._s(
                                             _vm.weather.main.temp_max.toFixed(1)
                                           ) +
-                                          "\n                                                    "
+                                          "\n                                                        "
                                       ),
                                       _c("high-temp-icon")
                                     ],
@@ -42645,10 +42806,11 @@ var render = function() {
                           [
                             _c(
                               "div",
+                              { staticClass: "clock-container-full-width" },
                               [
                                 _c("digital-clock", {
                                   staticClass: "clock",
-                                  attrs: { displaySeconds: true }
+                                  attrs: { displaySeconds: false }
                                 }),
                                 _vm._v(" "),
                                 _vm.mediaInfo !== null
@@ -42813,11 +42975,21 @@ var render = function() {
                             {
                               staticClass:
                                 "button small-button d-flex align-items-center justify-content-center",
+                              class:
+                                _vm.entityStates !== null &&
+                                _vm.entityStates.switch[
+                                  "switch.sitting_area_standing"
+                                ].state === "on"
+                                  ? "active "
+                                  : "",
                               attrs: { href: "#" },
                               on: {
                                 click: function($event) {
                                   $event.preventDefault()
-                                  return _vm.changeSwitch("switch.bar")
+                                  return _vm.changeSwitch(
+                                    "switch.sitting_area_standing",
+                                    $event
+                                  )
                                 }
                               }
                             },
@@ -42830,7 +43002,19 @@ var render = function() {
                             {
                               staticClass:
                                 "button small-button d-flex align-items-center justify-content-center",
-                              attrs: { href: "#" }
+                              class:
+                                _vm.entityStates !== null &&
+                                _vm.entityStates.switch["switch.bar"].state ===
+                                  "on"
+                                  ? "active "
+                                  : "",
+                              attrs: { href: "#" },
+                              on: {
+                                click: function($event) {
+                                  $event.preventDefault()
+                                  return _vm.changeSwitch("switch.bar", $event)
+                                }
+                              }
                             },
                             [_c("bar-icon", { attrs: { size: 30 } })],
                             1
@@ -42841,7 +43025,22 @@ var render = function() {
                             {
                               staticClass:
                                 "button small-button d-flex align-items-center justify-content-center",
-                              attrs: { href: "#" }
+                              class:
+                                _vm.entityStates !== null &&
+                                _vm.entityStates.light["light.bedroom"]
+                                  .state === "on"
+                                  ? "active "
+                                  : "",
+                              attrs: { href: "#" },
+                              on: {
+                                click: function($event) {
+                                  $event.preventDefault()
+                                  return _vm.changeLight(
+                                    "light.bedroom",
+                                    $event
+                                  )
+                                }
+                              }
                             },
                             [_c("bed-icon", { attrs: { size: 30 } })],
                             1
@@ -42852,9 +43051,24 @@ var render = function() {
                             {
                               staticClass:
                                 "button small-button d-flex align-items-center justify-content-center",
-                              attrs: { href: "#" }
+                              class:
+                                _vm.entityStates !== null &&
+                                _vm.entityStates.switch["switch.reading_light"]
+                                  .state === "on"
+                                  ? "active "
+                                  : "",
+                              attrs: { href: "#" },
+                              on: {
+                                click: function($event) {
+                                  $event.preventDefault()
+                                  return _vm.changeSwitch(
+                                    "switch.reading_light",
+                                    $event
+                                  )
+                                }
+                              }
                             },
-                            [_c("pause-icon", { attrs: { size: 30 } })],
+                            [_c("desk-light-icon", { attrs: { size: 30 } })],
                             1
                           )
                         ]),
@@ -42926,51 +43140,7 @@ var render = function() {
                           )
                         ]),
                         _vm._v(" "),
-                        _c("div", { staticClass: "col-3" }, [
-                          _c(
-                            "a",
-                            {
-                              staticClass:
-                                "button small-button d-flex align-items-center justify-content-center",
-                              attrs: { href: "#" }
-                            },
-                            [_c("pause-icon", { attrs: { size: 30 } })],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "a",
-                            {
-                              staticClass:
-                                "button small-button d-flex align-items-center justify-content-center",
-                              attrs: { href: "#" }
-                            },
-                            [_c("pause-icon", { attrs: { size: 30 } })],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "a",
-                            {
-                              staticClass:
-                                "button small-button d-flex align-items-center justify-content-center",
-                              attrs: { href: "#" }
-                            },
-                            [_c("pause-icon", { attrs: { size: 30 } })],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "a",
-                            {
-                              staticClass:
-                                "button small-button d-flex align-items-center justify-content-center",
-                              attrs: { href: "#" }
-                            },
-                            [_c("pause-icon", { attrs: { size: 30 } })],
-                            1
-                          )
-                        ])
+                        _c("div", { staticClass: "col-3" })
                       ])
                     ])
                   ]
@@ -44031,6 +44201,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _vue_loader_lib_loaders_templateLoader_js_vue_loader_options_vue_loader_lib_index_js_vue_loader_options_Cog_vue_vue_type_template_id_1b852f02_functional_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _vue_loader_lib_loaders_templateLoader_js_vue_loader_options_vue_loader_lib_index_js_vue_loader_options_Cog_vue_vue_type_template_id_1b852f02_functional_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-material-design-icons/DeskLamp.vue":
+/*!*************************************************************!*\
+  !*** ./node_modules/vue-material-design-icons/DeskLamp.vue ***!
+  \*************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _DeskLamp_vue_vue_type_template_id_22173bbd_functional_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DeskLamp.vue?vue&type=template&id=22173bbd&functional=true& */ "./node_modules/vue-material-design-icons/DeskLamp.vue?vue&type=template&id=22173bbd&functional=true&");
+/* harmony import */ var _DeskLamp_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DeskLamp.vue?vue&type=script&lang=js& */ "./node_modules/vue-material-design-icons/DeskLamp.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _DeskLamp_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _DeskLamp_vue_vue_type_template_id_22173bbd_functional_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _DeskLamp_vue_vue_type_template_id_22173bbd_functional_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  true,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "node_modules/vue-material-design-icons/DeskLamp.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./node_modules/vue-material-design-icons/DeskLamp.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************!*\
+  !*** ./node_modules/vue-material-design-icons/DeskLamp.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _vue_loader_lib_index_js_vue_loader_options_DeskLamp_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../vue-loader/lib??vue-loader-options!./DeskLamp.vue?vue&type=script&lang=js& */ "./node_modules/vue-loader/lib/index.js?!./node_modules/vue-material-design-icons/DeskLamp.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_vue_loader_lib_index_js_vue_loader_options_DeskLamp_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./node_modules/vue-material-design-icons/DeskLamp.vue?vue&type=template&id=22173bbd&functional=true&":
+/*!************************************************************************************************************!*\
+  !*** ./node_modules/vue-material-design-icons/DeskLamp.vue?vue&type=template&id=22173bbd&functional=true& ***!
+  \************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _vue_loader_lib_loaders_templateLoader_js_vue_loader_options_vue_loader_lib_index_js_vue_loader_options_DeskLamp_vue_vue_type_template_id_22173bbd_functional_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../vue-loader/lib??vue-loader-options!./DeskLamp.vue?vue&type=template&id=22173bbd&functional=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./node_modules/vue-material-design-icons/DeskLamp.vue?vue&type=template&id=22173bbd&functional=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _vue_loader_lib_loaders_templateLoader_js_vue_loader_options_vue_loader_lib_index_js_vue_loader_options_DeskLamp_vue_vue_type_template_id_22173bbd_functional_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _vue_loader_lib_loaders_templateLoader_js_vue_loader_options_vue_loader_lib_index_js_vue_loader_options_DeskLamp_vue_vue_type_template_id_22173bbd_functional_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -61956,7 +62195,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_material_design_icons_Sofa__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! vue-material-design-icons/Sofa */ "./node_modules/vue-material-design-icons/Sofa.vue");
 /* harmony import */ var vue_material_design_icons_Bed__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! vue-material-design-icons/Bed */ "./node_modules/vue-material-design-icons/Bed.vue");
 /* harmony import */ var vue_material_design_icons_FoodForkDrink__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! vue-material-design-icons/FoodForkDrink */ "./node_modules/vue-material-design-icons/FoodForkDrink.vue");
-/* harmony import */ var vue_snotify__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! vue-snotify */ "./node_modules/vue-snotify/vue-snotify.esm.js");
+/* harmony import */ var vue_material_design_icons_DeskLamp__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! vue-material-design-icons/DeskLamp */ "./node_modules/vue-material-design-icons/DeskLamp.vue");
+/* harmony import */ var vue_snotify__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! vue-snotify */ "./node_modules/vue-snotify/vue-snotify.esm.js");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -62020,6 +62260,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
 
 
 
+
 Vue.component('digital-clock', vue_digital_clock__WEBPACK_IMPORTED_MODULE_2__["default"]);
 Vue.component('weather-view', _components_WeatherComponent__WEBPACK_IMPORTED_MODULE_3__["default"]);
 Vue.component('on-icon', vue_material_design_icons_ToggleSwitch_vue__WEBPACK_IMPORTED_MODULE_4__["default"]);
@@ -62045,16 +62286,17 @@ Vue.component('sleep-icon', vue_material_design_icons_Sleep__WEBPACK_IMPORTED_MO
 Vue.component('sofa-icon', vue_material_design_icons_Sofa__WEBPACK_IMPORTED_MODULE_26__["default"]);
 Vue.component('bed-icon', vue_material_design_icons_Bed__WEBPACK_IMPORTED_MODULE_27__["default"]);
 Vue.component('bar-icon', vue_material_design_icons_FoodForkDrink__WEBPACK_IMPORTED_MODULE_28__["default"]);
+Vue.component('desk-light-icon', vue_material_design_icons_DeskLamp__WEBPACK_IMPORTED_MODULE_29__["default"]);
 Vue.component('check-blank-icon', vue_material_design_icons_CheckboxBlankOutline__WEBPACK_IMPORTED_MODULE_7__["default"]);
 Vue.component('check-checked-icon', vue_material_design_icons_CheckBoxOutline__WEBPACK_IMPORTED_MODULE_8__["default"]);
 
 var options = {
   toast: {
-    position: vue_snotify__WEBPACK_IMPORTED_MODULE_29__["SnotifyPosition"].rightTop,
+    position: vue_snotify__WEBPACK_IMPORTED_MODULE_30__["SnotifyPosition"].rightTop,
     timeout: 2000
   }
 };
-Vue.use(vue_snotify__WEBPACK_IMPORTED_MODULE_29__["default"], options);
+Vue.use(vue_snotify__WEBPACK_IMPORTED_MODULE_30__["default"], options);
 var app = new Vue({
   el: '#app',
   router: router

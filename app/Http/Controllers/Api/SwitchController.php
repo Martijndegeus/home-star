@@ -15,7 +15,7 @@ class SwitchController extends Controller
             $response = SwitchEntity::switch($entityId, true);
         }
 
-        return response()->json(SwitchEntity::getState($entityId));
+        return $response;
     }
 
     public function switchOn(String $entityId)
