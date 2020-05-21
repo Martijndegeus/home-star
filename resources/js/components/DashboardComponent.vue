@@ -589,6 +589,7 @@
         line-height: 1;
         font-size: 1.2em;
         border: none;
+        height: auto;
     }
 
     .cube__face--front {
