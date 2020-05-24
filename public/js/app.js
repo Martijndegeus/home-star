@@ -2168,6 +2168,64 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2200,6 +2258,7 @@ __webpack_require__.r(__webpack_exports__);
       this.changeDashboard();
       this.getHeadlines();
       this.getWeather();
+      this.getEntityStates();
     },
     showMorningDashboard: function showMorningDashboard() {
       var cube = document.getElementsByClassName('cube')[0];
@@ -42419,7 +42478,7 @@ var render = function() {
         staticClass: "btn view-button float-right",
         attrs: { href: "#", id: "menu_toggle" }
       },
-      [_c("cog-icon")],
+      [_c("cog-icon", { attrs: { title: "" } })],
       1
     ),
     _vm._v(" "),
@@ -42432,7 +42491,7 @@ var render = function() {
           id: "dashboard_morning_button"
         }
       },
-      [_c("sunrise-icon")],
+      [_c("sunrise-icon", { attrs: { title: "" } })],
       1
     ),
     _vm._v(" "),
@@ -42442,7 +42501,7 @@ var render = function() {
         staticClass: "btn view-button float-right",
         attrs: { onclick: "showDayDashboard()", id: "dashboard_day_button" }
       },
-      [_c("sun-icon")],
+      [_c("sun-icon", { attrs: { title: "" } })],
       1
     ),
     _vm._v(" "),
@@ -42452,7 +42511,7 @@ var render = function() {
         staticClass: "btn view-button float-right",
         attrs: { onclick: "showNightDashboard()", id: "dashboard_night_button" }
       },
-      [_c("moon-icon")],
+      [_c("moon-icon", { attrs: { title: "" } })],
       1
     ),
     _vm._v(" "),
@@ -42465,7 +42524,7 @@ var render = function() {
           id: "dashboard_general_button"
         }
       },
-      [_c("media-icon")],
+      [_c("media-icon", { attrs: { title: "" } })],
       1
     ),
     _vm._v(" "),
@@ -42612,6 +42671,112 @@ var render = function() {
                           )
                         ]),
                         _vm._v(" "),
+                        _c("div", { staticClass: "col-3" }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-3" }, [
+                          _c(
+                            "a",
+                            {
+                              staticClass:
+                                "button small-button d-flex align-items-center justify-content-center",
+                              class:
+                                _vm.entityStates !== null &&
+                                _vm.entityStates.switch[
+                                  "switch.sitting_area_standing"
+                                ].state === "on"
+                                  ? "active "
+                                  : "",
+                              attrs: { href: "#" },
+                              on: {
+                                click: function($event) {
+                                  $event.preventDefault()
+                                  return _vm.changeSwitch(
+                                    "switch.sitting_area_standing",
+                                    $event
+                                  )
+                                }
+                              }
+                            },
+                            [_c("sofa-icon", { attrs: { size: 30 } })],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass:
+                                "button small-button d-flex align-items-center justify-content-center",
+                              class:
+                                _vm.entityStates !== null &&
+                                _vm.entityStates.switch["switch.bar"].state ===
+                                  "on"
+                                  ? "active "
+                                  : "",
+                              attrs: { href: "#" },
+                              on: {
+                                click: function($event) {
+                                  $event.preventDefault()
+                                  return _vm.changeSwitch("switch.bar", $event)
+                                }
+                              }
+                            },
+                            [_c("bar-icon", { attrs: { size: 30 } })],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass:
+                                "button small-button d-flex align-items-center justify-content-center",
+                              class:
+                                _vm.entityStates !== null &&
+                                _vm.entityStates.light["light.bedroom"]
+                                  .state === "on"
+                                  ? "active "
+                                  : "",
+                              attrs: { href: "#" },
+                              on: {
+                                click: function($event) {
+                                  $event.preventDefault()
+                                  return _vm.changeLight(
+                                    "light.bedroom",
+                                    $event
+                                  )
+                                }
+                              }
+                            },
+                            [_c("bed-icon", { attrs: { size: 30 } })],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass:
+                                "button small-button d-flex align-items-center justify-content-center",
+                              class:
+                                _vm.entityStates !== null &&
+                                _vm.entityStates.switch["switch.reading_light"]
+                                  .state === "on"
+                                  ? "active "
+                                  : "",
+                              attrs: { href: "#" },
+                              on: {
+                                click: function($event) {
+                                  $event.preventDefault()
+                                  return _vm.changeSwitch(
+                                    "switch.reading_light",
+                                    $event
+                                  )
+                                }
+                              }
+                            },
+                            [_c("desk-light-icon", { attrs: { size: 30 } })],
+                            1
+                          )
+                        ]),
+                        _vm._v(" "),
                         _c("div", { staticClass: "col-12" }, [
                           _c("div", { staticClass: "marquee" }, [
                             _c(
@@ -42654,12 +42819,74 @@ var render = function() {
                                   "col-12 text-center d-flex align-items-center justify-content-center"
                               },
                               [
-                                _c("digital-clock", {
-                                  staticClass: "clock",
-                                  attrs: { displaySeconds: false }
-                                })
-                              ],
-                              1
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass:
+                                      "clock-container-full-width mb-2"
+                                  },
+                                  [
+                                    _c("digital-clock", {
+                                      staticClass: "clock",
+                                      attrs: { displaySeconds: false }
+                                    }),
+                                    _vm._v(" "),
+                                    _vm.mediaInfo !== null
+                                      ? _c("div", [
+                                          _c(
+                                            "small",
+                                            {
+                                              staticClass:
+                                                "float-left media-counter"
+                                            },
+                                            [_vm._v("0:00")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "small",
+                                            {
+                                              staticClass:
+                                                "float-right media-counter"
+                                            },
+                                            [
+                                              _vm._v(
+                                                _vm._s(
+                                                  new Date(
+                                                    _vm.mediaInfo.attributes
+                                                      .media_duration * 1000
+                                                  )
+                                                    .toISOString()
+                                                    .substr(11, 8)
+                                                )
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            { staticClass: "media-progress" },
+                                            [
+                                              _c("div", {
+                                                staticClass:
+                                                  "media-progress-fill",
+                                                style: {
+                                                  width:
+                                                    (_vm.mediaInfo.attributes
+                                                      .media_position /
+                                                      _vm.mediaInfo.attributes
+                                                        .media_duration) *
+                                                      100 +
+                                                    "%"
+                                                }
+                                              })
+                                            ]
+                                          )
+                                        ])
+                                      : _vm._e()
+                                  ],
+                                  1
+                                )
+                              ]
                             ),
                             _vm._v(" "),
                             _c("div", { staticClass: "col-6" }, [
@@ -42683,12 +42910,92 @@ var render = function() {
                             _vm._v(" "),
                             _c("div", { staticClass: "col-6" }, [
                               _c(
-                                "div",
+                                "a",
                                 {
                                   staticClass:
-                                    "button d-flex align-items-center justify-content-center"
+                                    "button small-button d-flex align-items-center justify-content-center",
+                                  class:
+                                    _vm.mediaInfo !== null &&
+                                    _vm.mediaInfo.state === "playing"
+                                      ? "active"
+                                      : "",
+                                  attrs: { href: "#" },
+                                  on: {
+                                    click: function($event) {
+                                      $event.preventDefault()
+                                      return _vm.play(
+                                        "media_player.living_room_tv"
+                                      )
+                                    }
+                                  }
                                 },
-                                [_c("power-off-icon", { attrs: { size: 36 } })],
+                                [_c("play-icon", { attrs: { size: 30 } })],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "a",
+                                {
+                                  staticClass:
+                                    "button small-button d-flex align-items-center justify-content-center",
+                                  class:
+                                    _vm.mediaInfo !== null &&
+                                    _vm.mediaInfo.state === "paused"
+                                      ? "active"
+                                      : "",
+                                  attrs: { href: "#" },
+                                  on: {
+                                    click: function($event) {
+                                      $event.preventDefault()
+                                      return _vm.pause(
+                                        "media_player.living_room_tv"
+                                      )
+                                    }
+                                  }
+                                },
+                                [_c("pause-icon", { attrs: { size: 30 } })],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "a",
+                                {
+                                  staticClass:
+                                    "button small-button d-flex align-items-center justify-content-center",
+                                  attrs: { href: "#" },
+                                  on: {
+                                    click: function($event) {
+                                      $event.preventDefault()
+                                      return _vm.volumeDown(
+                                        "media_player.living_room_tv"
+                                      )
+                                    }
+                                  }
+                                },
+                                [
+                                  _c("volume-down-icon", {
+                                    attrs: { size: 30 }
+                                  })
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "a",
+                                {
+                                  staticClass:
+                                    "button small-button d-flex align-items-center justify-content-center",
+                                  attrs: { href: "#" },
+                                  on: {
+                                    click: function($event) {
+                                      $event.preventDefault()
+                                      return _vm.volumeUp(
+                                        "media_player.living_room_tv"
+                                      )
+                                    }
+                                  }
+                                },
+                                [_c("volume-up-icon", { attrs: { size: 30 } })],
                                 1
                               )
                             ]),
@@ -42712,6 +43019,18 @@ var render = function() {
                                 [_c("door-open-icon", { attrs: { size: 36 } })],
                                 1
                               )
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-6" }, [
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "button d-flex align-items-center justify-content-center"
+                                },
+                                [_c("power-off-icon", { attrs: { size: 36 } })],
+                                1
+                              )
                             ])
                           ])
                         ]),
@@ -42730,7 +43049,7 @@ var render = function() {
                                     }
                                   }),
                                   _vm._v(" "),
-                                  _c("p", { staticClass: "pt-3" }, [
+                                  _c("p", [
                                     _vm._v(
                                       _vm._s(_vm.weather.main.temp.toFixed(1)) +
                                         "°C (" +
@@ -42783,7 +43102,8 @@ var render = function() {
                                 ]
                               )
                             : _vm._e()
-                        ])
+                        ]),
+                        _vm._v(".git\n                                    ")
                       ])
                     ])
                   ]
@@ -62682,8 +63002,8 @@ var routes = [{
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/martijn/Projects/home-star/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/martijn/Projects/home-star/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\projects\home-star\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\projects\home-star\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

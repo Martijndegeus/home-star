@@ -1,19 +1,19 @@
 <template>
     <div>
         <a href="#" id="menu_toggle" class="btn view-button float-right">
-            <cog-icon/>
+            <cog-icon title=""/>
         </a>
         <button onclick="showMorningDashboard()" id="dashboard_morning_button" class="btn view-button float-right">
-            <sunrise-icon/>
+            <sunrise-icon title=""/>
         </button>
         <button onclick="showDayDashboard()" id="dashboard_day_button" class="btn view-button float-right">
-            <sun-icon/>
+            <sun-icon title=""/>
         </button>
         <button onclick="showNightDashboard()" id="dashboard_night_button" class="btn view-button float-right">
-            <moon-icon/>
+            <moon-icon title=""/>
         </button>
         <button onclick="showGeneralDashboard()" id="dashboard_general_button" class="btn view-button float-right">
-            <media-icon/>
+            <media-icon title=""/>
         </button>
         <div class="content">
             <div class="container-fluid">
@@ -66,6 +66,31 @@
                                                     <power-off-icon :size="36"></power-off-icon>
                                                 </a>
                                             </div>
+                                            <div class="col-3"></div>
+                                            <div class="col-3">
+                                                <a href="#"
+                                                   @click.prevent="changeSwitch('switch.sitting_area_standing', $event)"
+                                                   :class="entityStates !== null && entityStates.switch['switch.sitting_area_standing'].state === 'on' ? 'active ' : ''"
+                                                   class="button small-button d-flex align-items-center justify-content-center">
+                                                    <sofa-icon :size="30"></sofa-icon>
+                                                </a>
+                                                <a href="#" @click.prevent="changeSwitch('switch.bar', $event)"
+                                                   :class="entityStates !== null && entityStates.switch['switch.bar'].state === 'on' ? 'active ' : ''"
+                                                   class="button small-button d-flex align-items-center justify-content-center">
+                                                    <bar-icon :size="30"></bar-icon>
+                                                </a>
+                                                <a href="#" @click.prevent="changeLight('light.bedroom', $event)"
+                                                   :class="entityStates !== null && entityStates.light['light.bedroom'].state === 'on' ? 'active ' : ''"
+                                                   class="button small-button d-flex align-items-center justify-content-center">
+                                                    <bed-icon :size="30"></bed-icon>
+                                                </a>
+                                                <a href="#"
+                                                   @click.prevent="changeSwitch('switch.reading_light', $event)"
+                                                   :class="entityStates !== null && entityStates.switch['switch.reading_light'].state === 'on' ? 'active ' : ''"
+                                                   class="button small-button d-flex align-items-center justify-content-center">
+                                                    <desk-light-icon :size="30"></desk-light-icon>
+                                                </a>
+                                            </div>
                                             <div class="col-12">
                                                 <div class="marquee">
                                                     <p><span v-for="headline in this.headlines" v-bind="headline.index">{{ headline }} | </span>
@@ -74,7 +99,6 @@
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
                                 <div class="cube__face cube__face--right"></div>
                                 <div class="cube__face cube__face--left"></div>
@@ -85,8 +109,20 @@
                                                 <div class="row align-items-start">
                                                     <div
                                                         class="col-12 text-center d-flex align-items-center justify-content-center">
-                                                        <digital-clock :displaySeconds="false"
-                                                                       class="clock"></digital-clock>
+                                                        <div class="clock-container-full-width mb-2">
+                                                            <digital-clock :displaySeconds="false"
+                                                                           class="clock"></digital-clock>
+                                                            <div v-if="mediaInfo !== null">
+                                                                <small class="float-left media-counter">0:00</small>
+                                                                <small class="float-right media-counter">{{ new
+                                                                    Date((mediaInfo.attributes.media_duration) *
+                                                                    1000).toISOString().substr(11, 8) }}</small>
+                                                                <div class="media-progress">
+                                                                    <div class="media-progress-fill"
+                                                                         v-bind:style="{ width: (mediaInfo.attributes.media_position / mediaInfo.attributes.media_duration) * 100 + '%' }"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                     <div class="col-6">
                                                         <a href="#" @click.prevent="scriptOn('script.radio')"
@@ -95,10 +131,26 @@
                                                         </a>
                                                     </div>
                                                     <div class="col-6">
-                                                        <div
-                                                            class="button d-flex align-items-center justify-content-center">
-                                                            <power-off-icon :size="36"></power-off-icon>
-                                                        </div>
+                                                        <a href="#"
+                                                           @click.prevent="play('media_player.living_room_tv')"
+                                                           v-bind:class="mediaInfo !== null && mediaInfo.state === 'playing' ? 'active' : ''"
+                                                           class="button small-button d-flex align-items-center justify-content-center">
+                                                            <play-icon :size="30"></play-icon>
+                                                        </a>
+                                                        <a href="#" @click.prevent="pause('media_player.living_room_tv')"
+                                                           v-bind:class="mediaInfo !== null && mediaInfo.state === 'paused' ? 'active' : ''"
+                                                           class="button small-button d-flex align-items-center justify-content-center">
+                                                            <pause-icon :size="30"></pause-icon>
+                                                        </a>
+                                                        <a href="#"
+                                                           @click.prevent="volumeDown('media_player.living_room_tv')"
+                                                           class="button small-button d-flex align-items-center justify-content-center">
+                                                            <volume-down-icon :size="30"></volume-down-icon>
+                                                        </a>
+                                                        <a href="#" @click.prevent="volumeUp('media_player.living_room_tv')"
+                                                           class="button small-button d-flex align-items-center justify-content-center">
+                                                            <volume-up-icon :size="30"></volume-up-icon>
+                                                        </a>
                                                     </div>
                                                     <div class="col-6">
                                                         <a href="#" @click.prevent="scriptOn('script.1587942336983')"
@@ -106,12 +158,18 @@
                                                             <door-open-icon :size="36"></door-open-icon>
                                                         </a>
                                                     </div>
+                                                    <div class="col-6">
+                                                        <div
+                                                            class="button d-flex align-items-center justify-content-center">
+                                                            <power-off-icon :size="36"></power-off-icon>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="col-6">
                                                 <div v-if="weather !== null" class="weather-view button text-center">
                                                     <img class="" :src="weather.weather[0].icons.large">
-                                                    <p class="pt-3">{{ weather.main.temp.toFixed(1) }}&deg;C ({{
+                                                    <p>{{ weather.main.temp.toFixed(1) }}&deg;C ({{
                                                         weather.main.feels_like.toFixed(1) }}&deg;C)</p>
                                                     <p class="text-capitalize">{{ weather.weather[0].description }}</p>
                                                     <p class="float-left">
@@ -124,7 +182,7 @@
                                                     </p>
                                                     <div class="clearfix"></div>
                                                 </div>
-                                            </div>
+                                            </div>.git
                                         </div>
                                     </div>
                                 </div>
@@ -289,6 +347,7 @@
                 this.changeDashboard();
                 this.getHeadlines();
                 this.getWeather();
+                this.getEntityStates();
             },
             showMorningDashboard() {
                 let cube = document.getElementsByClassName('cube')[0];

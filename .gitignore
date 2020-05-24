@@ -1,5 +1,5 @@
 /node_modules
-/laradock_homestar
+/laradock-homestar
 /public/hot
 /public/storage
 /storage/*.key
