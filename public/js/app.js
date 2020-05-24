@@ -43102,8 +43102,7 @@ var render = function() {
                                 ]
                               )
                             : _vm._e()
-                        ]),
-                        _vm._v(".git\n                                    ")
+                        ])
                       ])
                     ])
                   ]

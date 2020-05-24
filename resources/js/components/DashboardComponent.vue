@@ -182,7 +182,7 @@
                                                     </p>
                                                     <div class="clearfix"></div>
                                                 </div>
-                                            </div>.git
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
