@@ -2225,7 +2225,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -42583,7 +42582,11 @@ var render = function() {
                                 }
                               }
                             },
-                            [_c("radio-icon", { attrs: { size: 36 } })],
+                            [
+                              _c("radio-icon", {
+                                attrs: { title: "", size: 36 }
+                              })
+                            ],
                             1
                           )
                         ]),
@@ -42647,7 +42650,11 @@ var render = function() {
                                 }
                               }
                             },
-                            [_c("door-open-icon", { attrs: { size: 36 } })],
+                            [
+                              _c("door-open-icon", {
+                                attrs: { title: "", size: 36 }
+                              })
+                            ],
                             1
                           )
                         ]),
@@ -42666,7 +42673,11 @@ var render = function() {
                                 }
                               }
                             },
-                            [_c("power-off-icon", { attrs: { size: 36 } })],
+                            [
+                              _c("power-off-icon", {
+                                attrs: { title: "", size: 36 }
+                              })
+                            ],
                             1
                           )
                         ]),
@@ -42697,7 +42708,11 @@ var render = function() {
                                 }
                               }
                             },
-                            [_c("sofa-icon", { attrs: { size: 30 } })],
+                            [
+                              _c("sofa-icon", {
+                                attrs: { title: "", size: 30 }
+                              })
+                            ],
                             1
                           ),
                           _vm._v(" "),
@@ -42720,7 +42735,9 @@ var render = function() {
                                 }
                               }
                             },
-                            [_c("bar-icon", { attrs: { size: 30 } })],
+                            [
+                              _c("bar-icon", { attrs: { title: "", size: 30 } })
+                            ],
                             1
                           ),
                           _vm._v(" "),
@@ -42746,7 +42763,9 @@ var render = function() {
                                 }
                               }
                             },
-                            [_c("bed-icon", { attrs: { size: 30 } })],
+                            [
+                              _c("bed-icon", { attrs: { title: "", size: 30 } })
+                            ],
                             1
                           ),
                           _vm._v(" "),
@@ -42772,7 +42791,11 @@ var render = function() {
                                 }
                               }
                             },
-                            [_c("desk-light-icon", { attrs: { size: 30 } })],
+                            [
+                              _c("desk-light-icon", {
+                                attrs: { title: "", size: 30 }
+                              })
+                            ],
                             1
                           )
                         ]),
@@ -42903,7 +42926,11 @@ var render = function() {
                                     }
                                   }
                                 },
-                                [_c("radio-icon", { attrs: { size: 36 } })],
+                                [
+                                  _c("radio-icon", {
+                                    attrs: { title: "", size: 36 }
+                                  })
+                                ],
                                 1
                               )
                             ]),
@@ -42929,7 +42956,11 @@ var render = function() {
                                     }
                                   }
                                 },
-                                [_c("play-icon", { attrs: { size: 30 } })],
+                                [
+                                  _c("play-icon", {
+                                    attrs: { title: "", size: 30 }
+                                  })
+                                ],
                                 1
                               ),
                               _vm._v(" "),
@@ -42953,7 +42984,11 @@ var render = function() {
                                     }
                                   }
                                 },
-                                [_c("pause-icon", { attrs: { size: 30 } })],
+                                [
+                                  _c("pause-icon", {
+                                    attrs: { title: "", size: 30 }
+                                  })
+                                ],
                                 1
                               ),
                               _vm._v(" "),
@@ -42974,7 +43009,7 @@ var render = function() {
                                 },
                                 [
                                   _c("volume-down-icon", {
-                                    attrs: { size: 30 }
+                                    attrs: { title: "", size: 30 }
                                   })
                                 ],
                                 1
@@ -42995,7 +43030,11 @@ var render = function() {
                                     }
                                   }
                                 },
-                                [_c("volume-up-icon", { attrs: { size: 30 } })],
+                                [
+                                  _c("volume-up-icon", {
+                                    attrs: { title: "", size: 30 }
+                                  })
+                                ],
                                 1
                               )
                             ]),
@@ -43016,7 +43055,11 @@ var render = function() {
                                     }
                                   }
                                 },
-                                [_c("door-open-icon", { attrs: { size: 36 } })],
+                                [
+                                  _c("door-open-icon", {
+                                    attrs: { title: "", size: 36 }
+                                  })
+                                ],
                                 1
                               )
                             ]),
@@ -43028,7 +43071,11 @@ var render = function() {
                                   staticClass:
                                     "button d-flex align-items-center justify-content-center"
                                 },
-                                [_c("power-off-icon", { attrs: { size: 36 } })],
+                                [
+                                  _c("power-off-icon", {
+                                    attrs: { title: "", size: 36 }
+                                  })
+                                ],
                                 1
                               )
                             ])
@@ -43070,7 +43117,9 @@ var render = function() {
                                     "p",
                                     { staticClass: "float-left" },
                                     [
-                                      _c("low-temp-icon"),
+                                      _c("low-temp-icon", {
+                                        attrs: { title: "" }
+                                      }),
                                       _vm._v(
                                         "\n                                                    " +
                                           _vm._s(
@@ -43093,7 +43142,9 @@ var render = function() {
                                           ) +
                                           "\n                                                    "
                                       ),
-                                      _c("high-temp-icon")
+                                      _c("high-temp-icon", {
+                                        attrs: { title: "" }
+                                      })
                                     ],
                                     1
                                   ),
@@ -43131,7 +43182,11 @@ var render = function() {
                                 }
                               }
                             },
-                            [_c("radio-icon", { attrs: { size: 36 } })],
+                            [
+                              _c("radio-icon", {
+                                attrs: { title: "", size: 36 }
+                              })
+                            ],
                             1
                           )
                         ]),
@@ -43253,7 +43308,11 @@ var render = function() {
                                 }
                               }
                             },
-                            [_c("sleep-icon", { attrs: { size: 36 } })],
+                            [
+                              _c("sleep-icon", {
+                                attrs: { title: "", size: 36 }
+                              })
+                            ],
                             1
                           )
                         ]),
@@ -43277,7 +43336,11 @@ var render = function() {
                                 }
                               }
                             },
-                            [_c("play-icon", { attrs: { size: 36 } })],
+                            [
+                              _c("play-icon", {
+                                attrs: { title: "", size: 36 }
+                              })
+                            ],
                             1
                           )
                         ]),
@@ -43303,7 +43366,11 @@ var render = function() {
                                 }
                               }
                             },
-                            [_c("pause-icon", { attrs: { size: 36 } })],
+                            [
+                              _c("pause-icon", {
+                                attrs: { title: "", size: 36 }
+                              })
+                            ],
                             1
                           )
                         ]),
@@ -43332,7 +43399,11 @@ var render = function() {
                                 }
                               }
                             },
-                            [_c("sofa-icon", { attrs: { size: 30 } })],
+                            [
+                              _c("sofa-icon", {
+                                attrs: { title: "", size: 30 }
+                              })
+                            ],
                             1
                           ),
                           _vm._v(" "),
@@ -43355,7 +43426,9 @@ var render = function() {
                                 }
                               }
                             },
-                            [_c("bar-icon", { attrs: { size: 30 } })],
+                            [
+                              _c("bar-icon", { attrs: { title: "", size: 30 } })
+                            ],
                             1
                           ),
                           _vm._v(" "),
@@ -43381,7 +43454,9 @@ var render = function() {
                                 }
                               }
                             },
-                            [_c("bed-icon", { attrs: { size: 30 } })],
+                            [
+                              _c("bed-icon", { attrs: { title: "", size: 30 } })
+                            ],
                             1
                           ),
                           _vm._v(" "),
@@ -43407,7 +43482,11 @@ var render = function() {
                                 }
                               }
                             },
-                            [_c("desk-light-icon", { attrs: { size: 30 } })],
+                            [
+                              _c("desk-light-icon", {
+                                attrs: { title: "", size: 30 }
+                              })
+                            ],
                             1
                           )
                         ]),
@@ -43453,7 +43532,11 @@ var render = function() {
                                 }
                               }
                             },
-                            [_c("volume-down-icon", { attrs: { size: 36 } })],
+                            [
+                              _c("volume-down-icon", {
+                                attrs: { title: "", size: 36 }
+                              })
+                            ],
                             1
                           )
                         ]),
@@ -43474,7 +43557,11 @@ var render = function() {
                                 }
                               }
                             },
-                            [_c("volume-up-icon", { attrs: { size: 36 } })],
+                            [
+                              _c("volume-up-icon", {
+                                attrs: { title: "", size: 36 }
+                              })
+                            ],
                             1
                           )
                         ]),

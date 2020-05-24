@@ -39,7 +39,7 @@
                                             <div class="col-3">
                                                 <a href="#" @click.prevent="scriptOn('script.radio')"
                                                    class="button d-flex align-items-center justify-content-center">
-                                                    <radio-icon :size="36"></radio-icon>
+                                                    <radio-icon title="" :size="36"></radio-icon>
                                                 </a>
                                             </div>
                                             <div
@@ -57,13 +57,13 @@
                                             <div class="col-3">
                                                 <a href="#" @click.prevent="scriptOn('script.1587942336983')"
                                                    class="button d-flex align-items-center justify-content-center">
-                                                    <door-open-icon :size="36"></door-open-icon>
+                                                    <door-open-icon title="" :size="36"></door-open-icon>
                                                 </a>
                                             </div>
                                             <div class="col-3">
                                                 <a href="#" @click.prevent="scriptOn('script.1587935371473')"
                                                    class="button d-flex align-items-center justify-content-center">
-                                                    <power-off-icon :size="36"></power-off-icon>
+                                                    <power-off-icon title="" :size="36"></power-off-icon>
                                                 </a>
                                             </div>
                                             <div class="col-3"></div>
@@ -72,23 +72,23 @@
                                                    @click.prevent="changeSwitch('switch.sitting_area_standing', $event)"
                                                    :class="entityStates !== null && entityStates.switch['switch.sitting_area_standing'].state === 'on' ? 'active ' : ''"
                                                    class="button small-button d-flex align-items-center justify-content-center">
-                                                    <sofa-icon :size="30"></sofa-icon>
+                                                    <sofa-icon title="" :size="30"></sofa-icon>
                                                 </a>
                                                 <a href="#" @click.prevent="changeSwitch('switch.bar', $event)"
                                                    :class="entityStates !== null && entityStates.switch['switch.bar'].state === 'on' ? 'active ' : ''"
                                                    class="button small-button d-flex align-items-center justify-content-center">
-                                                    <bar-icon :size="30"></bar-icon>
+                                                    <bar-icon title="" :size="30"></bar-icon>
                                                 </a>
                                                 <a href="#" @click.prevent="changeLight('light.bedroom', $event)"
                                                    :class="entityStates !== null && entityStates.light['light.bedroom'].state === 'on' ? 'active ' : ''"
                                                    class="button small-button d-flex align-items-center justify-content-center">
-                                                    <bed-icon :size="30"></bed-icon>
+                                                    <bed-icon title="" :size="30"></bed-icon>
                                                 </a>
                                                 <a href="#"
                                                    @click.prevent="changeSwitch('switch.reading_light', $event)"
                                                    :class="entityStates !== null && entityStates.switch['switch.reading_light'].state === 'on' ? 'active ' : ''"
                                                    class="button small-button d-flex align-items-center justify-content-center">
-                                                    <desk-light-icon :size="30"></desk-light-icon>
+                                                    <desk-light-icon title="" :size="30"></desk-light-icon>
                                                 </a>
                                             </div>
                                             <div class="col-12">
@@ -127,7 +127,7 @@
                                                     <div class="col-6">
                                                         <a href="#" @click.prevent="scriptOn('script.radio')"
                                                            class="button d-flex align-items-center justify-content-center">
-                                                            <radio-icon :size="36"></radio-icon>
+                                                            <radio-icon title="" :size="36"></radio-icon>
                                                         </a>
                                                     </div>
                                                     <div class="col-6">
@@ -135,33 +135,33 @@
                                                            @click.prevent="play('media_player.living_room_tv')"
                                                            v-bind:class="mediaInfo !== null && mediaInfo.state === 'playing' ? 'active' : ''"
                                                            class="button small-button d-flex align-items-center justify-content-center">
-                                                            <play-icon :size="30"></play-icon>
+                                                            <play-icon title="" :size="30"></play-icon>
                                                         </a>
                                                         <a href="#" @click.prevent="pause('media_player.living_room_tv')"
                                                            v-bind:class="mediaInfo !== null && mediaInfo.state === 'paused' ? 'active' : ''"
                                                            class="button small-button d-flex align-items-center justify-content-center">
-                                                            <pause-icon :size="30"></pause-icon>
+                                                            <pause-icon title="" :size="30"></pause-icon>
                                                         </a>
                                                         <a href="#"
                                                            @click.prevent="volumeDown('media_player.living_room_tv')"
                                                            class="button small-button d-flex align-items-center justify-content-center">
-                                                            <volume-down-icon :size="30"></volume-down-icon>
+                                                            <volume-down-icon title="" :size="30"></volume-down-icon>
                                                         </a>
                                                         <a href="#" @click.prevent="volumeUp('media_player.living_room_tv')"
                                                            class="button small-button d-flex align-items-center justify-content-center">
-                                                            <volume-up-icon :size="30"></volume-up-icon>
+                                                            <volume-up-icon title="" :size="30"></volume-up-icon>
                                                         </a>
                                                     </div>
                                                     <div class="col-6">
                                                         <a href="#" @click.prevent="scriptOn('script.1587942336983')"
                                                            class="button d-flex align-items-center justify-content-center">
-                                                            <door-open-icon :size="36"></door-open-icon>
+                                                            <door-open-icon title="" :size="36"></door-open-icon>
                                                         </a>
                                                     </div>
                                                     <div class="col-6">
                                                         <div
                                                             class="button d-flex align-items-center justify-content-center">
-                                                            <power-off-icon :size="36"></power-off-icon>
+                                                            <power-off-icon title="" :size="36"></power-off-icon>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -173,12 +173,12 @@
                                                         weather.main.feels_like.toFixed(1) }}&deg;C)</p>
                                                     <p class="text-capitalize">{{ weather.weather[0].description }}</p>
                                                     <p class="float-left">
-                                                        <low-temp-icon></low-temp-icon>
+                                                        <low-temp-icon title=""></low-temp-icon>
                                                         {{ weather.main.temp_min.toFixed(1) }}
                                                     </p>
                                                     <p class="float-right">
                                                         {{ weather.main.temp_max.toFixed(1) }}
-                                                        <high-temp-icon></high-temp-icon>
+                                                        <high-temp-icon title=""></high-temp-icon>
                                                     </p>
                                                     <div class="clearfix"></div>
                                                 </div>
@@ -192,7 +192,7 @@
                                             <div class="col-3">
                                                 <a href="#" @click.prevent="scriptOn('script.radio')"
                                                    class="button d-flex align-items-center justify-content-center">
-                                                    <radio-icon :size="36"></radio-icon>
+                                                    <radio-icon title="" :size="36"></radio-icon>
                                                 </a>
                                             </div>
                                             <div
@@ -222,7 +222,7 @@
                                             <div class="col-3">
                                                 <a href="#" @click.prevent="scriptOn('script.1587942336983')"
                                                    class="button d-flex align-items-center justify-content-center">
-                                                    <sleep-icon :size="36"></sleep-icon>
+                                                    <sleep-icon title="" :size="36"></sleep-icon>
                                                 </a>
                                             </div>
                                             <div class="col-3">
@@ -231,7 +231,7 @@
                                                    @click.prevent="play('media_player.living_room_tv')"
                                                    class="button d-flex align-items-center justify-content-center"
                                                    id="play_button">
-                                                    <play-icon :size="36"></play-icon>
+                                                    <play-icon title="" :size="36"></play-icon>
                                                 </a>
                                             </div>
                                             <div class="col-3">
@@ -240,7 +240,7 @@
                                                    @click.prevent="pause('media_player.living_room_tv')"
                                                    class="button d-flex align-items-center justify-content-center"
                                                    id="pause_button">
-                                                    <pause-icon :size="36"></pause-icon>
+                                                    <pause-icon title="" :size="36"></pause-icon>
                                                 </a>
                                             </div>
                                             <div class="col-3">
@@ -248,23 +248,23 @@
                                                    @click.prevent="changeSwitch('switch.sitting_area_standing', $event)"
                                                    :class="entityStates !== null && entityStates.switch['switch.sitting_area_standing'].state === 'on' ? 'active ' : ''"
                                                    class="button small-button d-flex align-items-center justify-content-center">
-                                                    <sofa-icon :size="30"></sofa-icon>
+                                                    <sofa-icon title="" :size="30"></sofa-icon>
                                                 </a>
                                                 <a href="#" @click.prevent="changeSwitch('switch.bar', $event)"
                                                    :class="entityStates !== null && entityStates.switch['switch.bar'].state === 'on' ? 'active ' : ''"
                                                    class="button small-button d-flex align-items-center justify-content-center">
-                                                    <bar-icon :size="30"></bar-icon>
+                                                    <bar-icon title="" :size="30"></bar-icon>
                                                 </a>
                                                 <a href="#" @click.prevent="changeLight('light.bedroom', $event)"
                                                    :class="entityStates !== null && entityStates.light['light.bedroom'].state === 'on' ? 'active ' : ''"
                                                    class="button small-button d-flex align-items-center justify-content-center">
-                                                    <bed-icon :size="30"></bed-icon>
+                                                    <bed-icon title="" :size="30"></bed-icon>
                                                 </a>
                                                 <a href="#"
                                                    @click.prevent="changeSwitch('switch.reading_light', $event)"
                                                    :class="entityStates !== null && entityStates.switch['switch.reading_light'].state === 'on' ? 'active ' : ''"
                                                    class="button small-button d-flex align-items-center justify-content-center">
-                                                    <desk-light-icon :size="30"></desk-light-icon>
+                                                    <desk-light-icon title="" :size="30"></desk-light-icon>
                                                 </a>
                                             </div>
                                             <div class="col-3">
@@ -280,13 +280,13 @@
                                             <div class="col-3">
                                                 <a href="#" @click.prevent="volumeDown('media_player.living_room_tv')"
                                                    class="button d-flex align-items-center justify-content-center">
-                                                    <volume-down-icon :size="36"></volume-down-icon>
+                                                    <volume-down-icon title="" :size="36"></volume-down-icon>
                                                 </a>
                                             </div>
                                             <div class="col-3">
                                                 <a href="#" @click.prevent="volumeUp('media_player.living_room_tv')"
                                                    class="button d-flex align-items-center justify-content-center">
-                                                    <volume-up-icon :size="36"></volume-up-icon>
+                                                    <volume-up-icon title="" :size="36"></volume-up-icon>
                                                 </a>
                                             </div>
                                             <div class="col-3">
@@ -312,7 +312,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 </template>
 
