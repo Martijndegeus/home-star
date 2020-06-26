@@ -4,6 +4,8 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+import MorningDashboard from "./components/dashboards/MorningDashboard";
+
 require('./bootstrap');
 
 window.Vue = require('vue');
@@ -41,7 +43,7 @@ const router = new VueRouter({
 })
 
 import DigitalClock from "vue-digital-clock";
-import WeatherComponent from "./components/WeatherComponent";
+import WeatherComponent from "./components/weather/WeatherComponent";
 
 import ToggleOn from 'vue-material-design-icons/ToggleSwitch.vue';
 import ToggleOff from 'vue-material-design-icons/ToggleSwitchOff';
@@ -73,8 +75,27 @@ import BedIcon from 'vue-material-design-icons/Bed';
 import BarIcon from 'vue-material-design-icons/FoodForkDrink';
 import DeskLightIcon from 'vue-material-design-icons/DeskLamp';
 
+Vue.component('general-dashboard', GeneralDashboard);
+Vue.component('morning-dashboard', MorningDashboard);
+Vue.component('day-dashboard', DayDashboard);
+Vue.component('night-dashboard', NightDashboard);
+
+Vue.component('entity-switch', EntitySwitch);
+Vue.component('entity-light', EntityLight);
+Vue.component('entity-script', EntityScript);
+
+Vue.component('media-progress-bar', MediaProgressBar);
+Vue.component('media-play-button', MediaPlayButton);
+Vue.component('media-pause-button', MediaPauseButton);
+Vue.component('media-volume-up-button', MediaVolumeUpButton);
+Vue.component('media-volume-down-button', MediaVolumeDownButton);
+Vue.component('media-preview', MediaPreview);
+
 Vue.component('digital-clock', DigitalClock);
 Vue.component('weather-view', WeatherComponent);
+Vue.component('weather-small', WeatherSmall);
+
+Vue.component('news-ticker', NewsTicker);
 
 Vue.component('on-icon', ToggleOn);
 Vue.component('off-icon', ToggleOff);
@@ -106,6 +127,20 @@ Vue.component('check-blank-icon', CheckMarkIcon);
 Vue.component('check-checked-icon', CheckMarkIconChecked);
 
 import Snotify, { SnotifyPosition } from 'vue-snotify'
+import NightDashboard from "./components/dashboards/NightDashboard";
+import EntitySwitch from "./components/buttons/EntitySwitch";
+import EntityLight from "./components/buttons/EntityLight";
+import DayDashboard from "./components/dashboards/DayDashboard";
+import GeneralDashboard from "./components/dashboards/GeneralDashboard";
+import EntityScript from "./components/buttons/EntityScript";
+import MediaProgressBar from "./components/media-player/MediaProgressBar";
+import MediaPlayButton from "./components/media-player/MediaPlayButton";
+import MediaPauseButton from "./components/media-player/MediaPauseButton";
+import MediaVolumeUpButton from "./components/media-player/MediaVolumeUpButton";
+import MediaVolumeDownButton from "./components/media-player/MediaVolumeDownButton";
+import MediaPreview from "./components/media-player/MediaPreview";
+import WeatherSmall from "./components/weather/WeatherSmall";
+import NewsTicker from "./components/info/NewsTicker";
 
 const options = {
     toast: {

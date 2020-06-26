@@ -3,6 +3,5 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/laradock-homestar" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/laradock_homestar" vcs="Git" />
   </component>
 </project>

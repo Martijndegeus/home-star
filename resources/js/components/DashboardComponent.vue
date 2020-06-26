@@ -21,291 +21,12 @@
                     <div class="dashboard">
                         <div class="scene">
                             <div class="cube">
-                                <div id="general" class="cube__face cube__face--front pt-2">
-                                    <div class="container">
-                                        <div class="row align-items-start">
-                                            <div class="col-3"></div>
-                                            <div class="col-6">
-                                                <div v-if="mediaInfo !== null" class="media-progress">
-                                                    <div class="media-progress-fill" style="width: 43.5%"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id="morning" class="cube__face cube__face--back pt-2">
-                                    <div class="container">
-                                        <div class="row align-items-start">
-                                            <div class="col-3">
-                                                <a href="#" @click.prevent="scriptOn('script.radio')"
-                                                   class="button d-flex align-items-center justify-content-center">
-                                                    <radio-icon title="" :size="36"></radio-icon>
-                                                </a>
-                                            </div>
-                                            <div
-                                                class="col-6 text-center d-flex align-items-center justify-content-center">
-                                                <digital-clock :displaySeconds="false"
-                                                               class="clock"></digital-clock>
-                                            </div>
-                                            <div class="col-3">
-                                                <div v-if="weather !== null" class="weather-view button text-center">
-                                                    <img class="float-left" :src="weather.weather[0].icons.small">
-                                                    <p class="pt-3">{{ weather.main.temp.toFixed(1) }}&deg;C ({{
-                                                        weather.main.feels_like.toFixed(1) }}&deg;C)</p>
-                                                </div>
-                                            </div>
-                                            <div class="col-3">
-                                                <a href="#" @click.prevent="scriptOn('script.1587942336983')"
-                                                   class="button d-flex align-items-center justify-content-center">
-                                                    <door-open-icon title="" :size="36"></door-open-icon>
-                                                </a>
-                                            </div>
-                                            <div class="col-3">
-                                                <a href="#" @click.prevent="scriptOn('script.1587935371473')"
-                                                   class="button d-flex align-items-center justify-content-center">
-                                                    <power-off-icon title="" :size="36"></power-off-icon>
-                                                </a>
-                                            </div>
-                                            <div class="col-3"></div>
-                                            <div class="col-3">
-                                                <a href="#"
-                                                   @click.prevent="changeSwitch('switch.sitting_area_standing', $event)"
-                                                   :class="entityStates !== null && entityStates.switch['switch.sitting_area_standing'].state === 'on' ? 'active ' : ''"
-                                                   class="button small-button d-flex align-items-center justify-content-center">
-                                                    <sofa-icon title="" :size="30"></sofa-icon>
-                                                </a>
-                                                <a href="#" @click.prevent="changeSwitch('switch.bar', $event)"
-                                                   :class="entityStates !== null && entityStates.switch['switch.bar'].state === 'on' ? 'active ' : ''"
-                                                   class="button small-button d-flex align-items-center justify-content-center">
-                                                    <bar-icon title="" :size="30"></bar-icon>
-                                                </a>
-                                                <a href="#" @click.prevent="changeLight('light.bedroom', $event)"
-                                                   :class="entityStates !== null && entityStates.light['light.bedroom'].state === 'on' ? 'active ' : ''"
-                                                   class="button small-button d-flex align-items-center justify-content-center">
-                                                    <bed-icon title="" :size="30"></bed-icon>
-                                                </a>
-                                                <a href="#"
-                                                   @click.prevent="changeSwitch('switch.reading_light', $event)"
-                                                   :class="entityStates !== null && entityStates.switch['switch.reading_light'].state === 'on' ? 'active ' : ''"
-                                                   class="button small-button d-flex align-items-center justify-content-center">
-                                                    <desk-light-icon title="" :size="30"></desk-light-icon>
-                                                </a>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="marquee">
-                                                    <p><span v-for="headline in this.headlines" v-bind="headline.index">{{ headline }} | </span>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <general-dashboard v-bind:media-info="mediaInfo"></general-dashboard>
+                                <morning-dashboard v-bind:weather="weather" v-bind:entity-states="entityStates" v-bind:headlines="headlines"></morning-dashboard>
                                 <div class="cube__face cube__face--right"></div>
                                 <div class="cube__face cube__face--left"></div>
-                                <div id="day" class="cube__face cube__face--top pt-2">
-                                    <div class="container">
-                                        <div class="row align-items-start">
-                                            <div class="col-6">
-                                                <div class="row align-items-start">
-                                                    <div
-                                                        class="col-12 text-center d-flex align-items-center justify-content-center">
-                                                        <div class="clock-container-full-width mb-2">
-                                                            <digital-clock :displaySeconds="false"
-                                                                           class="clock"></digital-clock>
-                                                            <div v-if="mediaInfo !== null">
-                                                                <small class="float-left media-counter">0:00</small>
-                                                                <small class="float-right media-counter">{{ new
-                                                                    Date((mediaInfo.attributes.media_duration) *
-                                                                    1000).toISOString().substr(11, 8) }}</small>
-                                                                <div class="media-progress">
-                                                                    <div class="media-progress-fill"
-                                                                         v-bind:style="{ width: (mediaInfo.attributes.media_position / mediaInfo.attributes.media_duration) * 100 + '%' }"></div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <a href="#" @click.prevent="scriptOn('script.radio')"
-                                                           class="button d-flex align-items-center justify-content-center">
-                                                            <radio-icon title="" :size="36"></radio-icon>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <a href="#"
-                                                           @click.prevent="play('media_player.living_room_tv')"
-                                                           v-bind:class="mediaInfo !== null && mediaInfo.state === 'playing' ? 'active' : ''"
-                                                           class="button small-button d-flex align-items-center justify-content-center">
-                                                            <play-icon title="" :size="30"></play-icon>
-                                                        </a>
-                                                        <a href="#" @click.prevent="pause('media_player.living_room_tv')"
-                                                           v-bind:class="mediaInfo !== null && mediaInfo.state === 'paused' ? 'active' : ''"
-                                                           class="button small-button d-flex align-items-center justify-content-center">
-                                                            <pause-icon title="" :size="30"></pause-icon>
-                                                        </a>
-                                                        <a href="#"
-                                                           @click.prevent="volumeDown('media_player.living_room_tv')"
-                                                           class="button small-button d-flex align-items-center justify-content-center">
-                                                            <volume-down-icon title="" :size="30"></volume-down-icon>
-                                                        </a>
-                                                        <a href="#" @click.prevent="volumeUp('media_player.living_room_tv')"
-                                                           class="button small-button d-flex align-items-center justify-content-center">
-                                                            <volume-up-icon title="" :size="30"></volume-up-icon>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <a href="#" @click.prevent="scriptOn('script.1587942336983')"
-                                                           class="button d-flex align-items-center justify-content-center">
-                                                            <door-open-icon title="" :size="36"></door-open-icon>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <div
-                                                            class="button d-flex align-items-center justify-content-center">
-                                                            <power-off-icon title="" :size="36"></power-off-icon>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <div v-if="weather !== null" class="weather-view button text-center">
-                                                    <img class="" :src="weather.weather[0].icons.large">
-                                                    <p>{{ weather.main.temp.toFixed(1) }}&deg;C ({{
-                                                        weather.main.feels_like.toFixed(1) }}&deg;C)</p>
-                                                    <p class="text-capitalize">{{ weather.weather[0].description }}</p>
-                                                    <p class="float-left">
-                                                        <low-temp-icon title=""></low-temp-icon>
-                                                        {{ weather.main.temp_min.toFixed(1) }}
-                                                    </p>
-                                                    <p class="float-right">
-                                                        {{ weather.main.temp_max.toFixed(1) }}
-                                                        <high-temp-icon title=""></high-temp-icon>
-                                                    </p>
-                                                    <div class="clearfix"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id="night" class="cube__face cube__face--bottom pt-2">
-                                    <div class="container">
-                                        <div class="row align-items-start">
-                                            <div class="col-3">
-                                                <a href="#" @click.prevent="scriptOn('script.radio')"
-                                                   class="button d-flex align-items-center justify-content-center">
-                                                    <radio-icon title="" :size="36"></radio-icon>
-                                                </a>
-                                            </div>
-                                            <div
-                                                class="col-6 text-center d-flex align-items-center justify-content-center">
-                                                <div class="clock-container-full-width">
-                                                    <digital-clock :displaySeconds="false"
-                                                                   class="clock"></digital-clock>
-                                                    <div v-if="mediaInfo !== null">
-                                                        <small class="float-left media-counter">0:00</small>
-                                                        <small class="float-right media-counter">{{ new
-                                                            Date((mediaInfo.attributes.media_duration) *
-                                                            1000).toISOString().substr(11, 8) }}</small>
-                                                        <div class="media-progress">
-                                                            <div class="media-progress-fill"
-                                                                 v-bind:style="{ width: (mediaInfo.attributes.media_position / mediaInfo.attributes.media_duration) * 100 + '%' }"></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-3">
-                                                <div v-if="weather !== null" class="weather-view button text-center">
-                                                    <img class="float-left" :src="weather.weather[0].icons.small">
-                                                    <p class="pt-3">{{ weather.main.temp.toFixed(1) }}&deg;C ({{
-                                                        weather.main.feels_like.toFixed(1) }}&deg;C)</p>
-                                                </div>
-                                            </div>
-                                            <div class="col-3">
-                                                <a href="#" @click.prevent="scriptOn('script.1587942336983')"
-                                                   class="button d-flex align-items-center justify-content-center">
-                                                    <sleep-icon title="" :size="36"></sleep-icon>
-                                                </a>
-                                            </div>
-                                            <div class="col-3">
-                                                <a href="#"
-                                                   v-bind:class="mediaInfo !== null && mediaInfo.state === 'playing' ? 'active' : ''"
-                                                   @click.prevent="play('media_player.living_room_tv')"
-                                                   class="button d-flex align-items-center justify-content-center"
-                                                   id="play_button">
-                                                    <play-icon title="" :size="36"></play-icon>
-                                                </a>
-                                            </div>
-                                            <div class="col-3">
-                                                <a href="#"
-                                                   v-bind:class="mediaInfo !== null && mediaInfo.state === 'paused' ? 'active' : ''"
-                                                   @click.prevent="pause('media_player.living_room_tv')"
-                                                   class="button d-flex align-items-center justify-content-center"
-                                                   id="pause_button">
-                                                    <pause-icon title="" :size="36"></pause-icon>
-                                                </a>
-                                            </div>
-                                            <div class="col-3">
-                                                <a href="#"
-                                                   @click.prevent="changeSwitch('switch.sitting_area_standing', $event)"
-                                                   :class="entityStates !== null && entityStates.switch['switch.sitting_area_standing'].state === 'on' ? 'active ' : ''"
-                                                   class="button small-button d-flex align-items-center justify-content-center">
-                                                    <sofa-icon title="" :size="30"></sofa-icon>
-                                                </a>
-                                                <a href="#" @click.prevent="changeSwitch('switch.bar', $event)"
-                                                   :class="entityStates !== null && entityStates.switch['switch.bar'].state === 'on' ? 'active ' : ''"
-                                                   class="button small-button d-flex align-items-center justify-content-center">
-                                                    <bar-icon title="" :size="30"></bar-icon>
-                                                </a>
-                                                <a href="#" @click.prevent="changeLight('light.bedroom', $event)"
-                                                   :class="entityStates !== null && entityStates.light['light.bedroom'].state === 'on' ? 'active ' : ''"
-                                                   class="button small-button d-flex align-items-center justify-content-center">
-                                                    <bed-icon title="" :size="30"></bed-icon>
-                                                </a>
-                                                <a href="#"
-                                                   @click.prevent="changeSwitch('switch.reading_light', $event)"
-                                                   :class="entityStates !== null && entityStates.switch['switch.reading_light'].state === 'on' ? 'active ' : ''"
-                                                   class="button small-button d-flex align-items-center justify-content-center">
-                                                    <desk-light-icon title="" :size="30"></desk-light-icon>
-                                                </a>
-                                            </div>
-                                            <div class="col-3">
-                                                <div class="button" v-if="mediaInfo !== null">
-                                                    <div
-                                                        v-if="mediaInfo !== null && mediaInfo.attributes.entity_picture !== null"
-                                                        class="media-image">
-                                                        <img :src="mediaInfo.attributes.entity_picture"/>
-                                                    </div>
-                                                    <p class="media-app">{{ mediaInfo.attributes.app_name }}</p>
-                                                </div>
-                                            </div>
-                                            <div class="col-3">
-                                                <a href="#" @click.prevent="volumeDown('media_player.living_room_tv')"
-                                                   class="button d-flex align-items-center justify-content-center">
-                                                    <volume-down-icon title="" :size="36"></volume-down-icon>
-                                                </a>
-                                            </div>
-                                            <div class="col-3">
-                                                <a href="#" @click.prevent="volumeUp('media_player.living_room_tv')"
-                                                   class="button d-flex align-items-center justify-content-center">
-                                                    <volume-up-icon title="" :size="36"></volume-up-icon>
-                                                </a>
-                                            </div>
-                                            <div class="col-3">
-                                                <!--                                                <a href="#" class="button small-button d-flex align-items-center justify-content-center">-->
-                                                <!--                                                    <pause-icon :size="30"></pause-icon>-->
-                                                <!--                                                </a>-->
-                                                <!--                                                <a href="#" class="button small-button d-flex align-items-center justify-content-center">-->
-                                                <!--                                                    <pause-icon :size="30"></pause-icon>-->
-                                                <!--                                                </a>-->
-                                                <!--                                                <a href="#" class="button small-button d-flex align-items-center justify-content-center">-->
-                                                <!--                                                    <pause-icon :size="30"></pause-icon>-->
-                                                <!--                                                </a>-->
-                                                <!--                                                <a href="#" class="button small-button d-flex align-items-center justify-content-center">-->
-                                                <!--                                                    <pause-icon :size="30"></pause-icon>-->
-                                                <!--                                                </a>-->
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <day-dashboard v-bind:weather="weather" v-bind:entity-states="entityStates" v-bind:media-info="mediaInfo"></day-dashboard>
+                                <night-dashboard v-bind:weather="weather" v-bind:entity-states="entityStates" v-bind:mediaInfo="mediaInfo"></night-dashboard>
                             </div>
                         </div>
                     </div>
@@ -332,7 +53,6 @@
         mounted() {
             this.interval = setInterval(() => {
                 this.refreshDashboard();
-                this.getMediaInfo();
             }, 60000);
 
             this.changeDashboard();
@@ -346,6 +66,7 @@
                 this.changeDashboard();
                 this.getHeadlines();
                 this.getWeather();
+                this.getMediaInfo();
                 this.getEntityStates();
             },
             showMorningDashboard() {
@@ -424,38 +145,6 @@
                     _this.$snotify.error('Something went wrong...');
                 });
             },
-            changeSwitch(entityId, event) {
-                let _this = this;
-                let button = event.target;
-                axios.get('api/switches/' + entityId + '/change').then((result) => {
-                    console.log('Changed state for ' + entityId);
-                    if (result.data === 'on') {
-                        button.classList.add('active');
-                    } else {
-                        button.classList.remove('active');
-                    }
-                }).catch(function (error) {
-                    console.log(error);
-                    _this.$snotify.error('Something went wrong...');
-                });
-            },
-            changeLight(entityId, event) {
-                let _this = this;
-                let button = event.target;
-                axios.get('api/lights/' + entityId + '/change').then((result) => {
-                    console.log('Changed state for ' + entityId);
-                    console.log(button);
-                    console.log(result.data);
-                    if (result.data === 'on') {
-                        button.classList.add('active');
-                    } else {
-                        button.classList.remove('active');
-                    }
-                }).catch(function (error) {
-                    console.log(error);
-                    _this.$snotify.error('Something went wrong...');
-                });
-            },
             switchOn(entityId) {
                 let _this = this;
                 axios.get('api/switches/' + entityId + '/on').then(() => {
@@ -474,64 +163,11 @@
                     _this.$snotify.error('Something went wrong...');
                 });
             },
-            scriptOn(entityId) {
-                let _this = this;
-                axios.get('api/scripts/' + entityId + '/on').then(() => {
-                    console.log('Switched ' + entityId + ' on');
-                }).catch(function (error) {
-                    console.log(error);
-                    _this.$snotify.error('Something went wrong...');
-                });
-            },
-            play(entityId) {
-                let _this = this;
-                let playButton = document.getElementById('play_button');
-                let pauseButton = document.getElementById('pause_button');
-                pauseButton.classList.remove('active');
-                playButton.classList.add('active');
-                axios.get('api/media/' + entityId + '/play').then(() => {
-                    console.log('Playing on ' + entityId);
-                }).catch(function (error) {
-                    console.log(error);
-                    _this.$snotify.error('Something went wrong...');
-                });
-            },
-            pause(entityId) {
-                let _this = this;
-                let playButton = document.getElementById('play_button');
-                let pauseButton = document.getElementById('pause_button');
-                pauseButton.classList.add('active');
-                playButton.classList.remove('active');
-                axios.get('api/media/' + entityId + '/pause').then(() => {
-                    console.log('Paused ' + entityId);
-                }).catch(function (error) {
-                    console.log(error);
-                    _this.$snotify.error('Something went wrong...');
-                });
-            },
-            volumeUp(entityId) {
-                let _this = this;
-                axios.get('api/media/' + entityId + '/volume-up').then(() => {
-                    console.log('Volume increased on ' + entityId);
-                }).catch(function (error) {
-                    console.log(error);
-                    _this.$snotify.error('Something went wrong...');
-                });
-            },
-            volumeDown(entityId) {
-                let _this = this;
-                axios.get('api/media/' + entityId + '/volume-down').then(() => {
-                    console.log('Volume decreased on ' + entityId);
-                }).catch(function (error) {
-                    console.log(error);
-                    _this.$snotify.error('Something went wrong...');
-                });
-            },
         }
     }
 </script>
 
-<style scoped>
+<style>
 
     #dashboards {
         margin: 0 auto;
@@ -591,8 +227,13 @@
         color: rgba(255, 255, 255, 0.75);
     }
 
+    .button:hover {
+        color: rgba(255, 255, 255, 0.75);
+    }
+
     .button.active {
         background: rgba(255, 255, 255, 0.15);
+        color: rgba(255, 255, 255, 0.75);
     }
 
     .small-button {
