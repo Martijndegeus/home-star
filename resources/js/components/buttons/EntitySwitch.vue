@@ -1,12 +1,13 @@
 <template>
-    <a href="#"
+    <a :class="entityStates.switch['switch.' + switchName].state === 'on' ? 'active ' : ''"
+       v-bind:data-title="entityStates.switch['switch.' + switchName].friendly_name"
        @click.prevent="changeSwitch('switch.' + switchName, $event)"
-       :class="entityStates !== null && entityStates.switch['switch.' + switchName].state === 'on' ? 'active ' : ''"
-       class="button small-button d-flex align-items-center justify-content-center">
+       class="button small-button d-flex align-items-center justify-content-center"
+       href="#"
+       v-if="entityStates !== null">
         <component :is="icon" :size="30"></component>
-<!--        <{{ icon }}-icon title="" :size="30"></{{ icon }}-icon>-->
+        <!--        <{{ icon }}-icon title="" :size="30"></{{ icon }}-icon>-->
     </a>
-
 </template>
 
 <script>
@@ -17,8 +18,9 @@
             changeSwitch(entityId, event) {
                 let _this = this;
                 let button = event.target;
+                let name = button.dataset.entityName;
                 axios.get('api/switches/' + entityId + '/change').then((result) => {
-                    console.log('Changed state for ' + entityId);
+                    _this.$snotify.success('Turning switch ' + name);
                     if (result.data === 'on') {
                         button.classList.add('active');
                     } else {

@@ -53,7 +53,8 @@ import CheckMarkIconChecked from 'vue-material-design-icons/CheckBoxOutline';
 import SunRiseIcon from 'vue-material-design-icons/WeatherSunset';
 import SunIcon from 'vue-material-design-icons/WeatherSunny';
 import MoonIcon from 'vue-material-design-icons/WeatherNight';
-import HomeIcon from 'vue-material-design-icons/HomeAutomation';
+import HomeIcon from 'vue-material-design-icons/Home';
+import WorkIcon from 'vue-material-design-icons/OfficeBuilding';
 import MediaIcon from 'vue-material-design-icons/RemoteTv';
 import DashboardIcon from 'vue-material-design-icons/ViewDashboard';
 import WrenchIcon from 'vue-material-design-icons/Wrench';
@@ -68,6 +69,7 @@ import OpenDoorIcon from 'vue-material-design-icons/DoorOpen';
 import HighTempIcon from 'vue-material-design-icons/ThermometerHigh';
 import LowTempIcon from 'vue-material-design-icons/ThermometerLow';
 import PowerOffIcon from 'vue-material-design-icons/PowerStandby';
+import PowerOnIcon from 'vue-material-design-icons/PowerOn';
 import SleepIcon from 'vue-material-design-icons/Sleep';
 
 import SofaIcon from 'vue-material-design-icons/Sofa';
@@ -104,6 +106,7 @@ Vue.component('sunrise-icon', SunRiseIcon);
 Vue.component('sun-icon', SunIcon);
 Vue.component('moon-icon', MoonIcon);
 Vue.component('home-icon', HomeIcon);
+Vue.component('work-icon', WorkIcon)
 Vue.component('media-icon', MediaIcon);
 Vue.component('dashboard-icon', DashboardIcon);
 Vue.component('wrench-icon', WrenchIcon);
@@ -116,6 +119,7 @@ Vue.component('door-open-icon', OpenDoorIcon);
 Vue.component('high-temp-icon', HighTempIcon);
 Vue.component('low-temp-icon', LowTempIcon);
 Vue.component('power-off-icon', PowerOffIcon);
+Vue.component('power-on-icon', PowerOnIcon);
 Vue.component('sleep-icon', SleepIcon);
 
 Vue.component('sofa-icon', SofaIcon);

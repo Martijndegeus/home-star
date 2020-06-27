@@ -15,9 +15,7 @@
                 let _this = this;
                 let button = event.target;
                 axios.get('api/lights/' + entityId + '/change').then((result) => {
-                    console.log('Changed state for ' + entityId);
-                    console.log(button);
-                    console.log(result.data);
+                    _this.$snotify.success('Turning light ' + result.data);
                     if (result.data === 'on') {
                         button.classList.add('active');
                     } else {
