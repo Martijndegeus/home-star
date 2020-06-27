@@ -21,7 +21,7 @@
                     <div class="dashboard">
                         <div class="scene">
                             <div class="cube">
-                                <general-dashboard v-bind:media-info="mediaInfo"></general-dashboard>
+                                <general-dashboard v-bind:entity-states="entityStates" v-bind:media-info="mediaInfo"></general-dashboard>
                                 <morning-dashboard v-bind:weather="weather" v-bind:entity-states="entityStates" v-bind:headlines="headlines"></morning-dashboard>
                                 <div class="cube__face cube__face--right"></div>
                                 <div class="cube__face cube__face--left"></div>
@@ -33,6 +33,7 @@
                 </div>
             </div>
         </div>
+        <vue-snotify></vue-snotify>
     </div>
 </template>
 
@@ -40,7 +41,12 @@
     export default {
         data() {
             return {
-                interval: null,
+                intervals: {
+                    entities: null,
+                    media: null,
+                    weather: null,
+                    headlines: null,
+                },
                 mediaInterval: null,
                 activeDashboard: 0,
                 headlines: [],
@@ -51,9 +57,21 @@
         },
         name: "DashboardComponent.vue",
         mounted() {
-            this.interval = setInterval(() => {
-                this.refreshDashboard();
+            this.intervals.entities = setInterval(() => {
+                this.refreshEntities();
             }, 60000);
+
+            this.intervals.headlines = setInterval(() => {
+                this.getHeadlines();
+            }, 600000);
+
+            this.intervals.media = setInterval(() => {
+                this.getMediaInfo();
+            }, 1000);
+
+            this.intervals.weather = setInterval(() => {
+                this.getWeather();
+            }, 1200000);
 
             this.changeDashboard();
             this.getHeadlines();
@@ -62,12 +80,15 @@
             this.getEntityStates();
         },
         methods: {
-            refreshDashboard() {
+            refreshEntities() {
                 this.changeDashboard();
+                this.getEntityStates();
+            },
+            refreshDashboard() {
                 this.getHeadlines();
                 this.getWeather();
                 this.getMediaInfo();
-                this.getEntityStates();
+
             },
             showMorningDashboard() {
                 let cube = document.getElementsByClassName('cube')[0];
@@ -93,7 +114,7 @@
                 let now = new Date();
                 let hour = now.getHours();
 
-                clearInterval(this.interval);
+                // clearInterval(this.interval);
 
                 if (hour > 6 && hour < 12) {
                     this.showMorningDashboard();
@@ -105,7 +126,7 @@
                     this.showGeneralDashboard();
                 }
 
-                this.interval = setInterval(this.refreshDashboard, 60000);
+                this.intervals.entities = setInterval(this.refreshEntities, 60000);
             },
             getHeadlines() {
                 let _this = this;
@@ -129,7 +150,7 @@
                 let _this = this;
                 axios.get('api/media/info').then(function (result) {
                     _this.mediaInfo = result.data;
-                    console.log(result.data);
+                    // console.log(result.data);
                 }).catch(function (error) {
                     console.log(error);
                     _this.$snotify.error('Something went wrong...');
@@ -139,7 +160,7 @@
                 let _this = this;
                 axios.get('api/entities').then(function (result) {
                     _this.entityStates = result.data;
-                    console.log(result.data);
+                    // console.log(result.data);
                 }).catch(function (error) {
                     console.log(error);
                     _this.$snotify.error('Something went wrong...');
@@ -148,7 +169,7 @@
             switchOn(entityId) {
                 let _this = this;
                 axios.get('api/switches/' + entityId + '/on').then(() => {
-                    console.log('Switched ' + entityId + ' on');
+                    // console.log('Switched ' + entityId + ' on');
                 }).catch(function (error) {
                     console.log(error);
                     _this.$snotify.error('Something went wrong...');
@@ -157,7 +178,7 @@
             switchOff(entityId) {
                 let _this = this;
                 axios.get('api/switches/' + entityId + '/off').then(() => {
-                    console.log('Switched ' + entityId + ' off');
+                    // console.log('Switched ' + entityId + ' off');
                 }).catch(function (error) {
                     console.log(error);
                     _this.$snotify.error('Something went wrong...');
@@ -216,6 +237,10 @@
 
     .cube__face {
         position: absolute;
+    }
+
+    .text-grey {
+        color: rgba(255, 255, 255, 0.5);
     }
 
     .button {
